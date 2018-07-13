@@ -1,0 +1,52 @@
+
+<section id="sc" class="flat-highlights">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="highlights">
+          <div class="menu-list">
+            <div class="row">
+            <% %w(소아과 산부인과 내과 외과 피부과 성형외과).each_with_index do |d, idx|%>
+            <div class="col-xs-6 col-sm-4 col-md-2">
+              <!--  class="active" -->
+                <div class="text-center">
+                  <a href="#" title="">
+                <img src="<%= asset_path "cate/img#{idx+1}.png"%>" alt="">
+                <span class="department"><%=d %></span>
+                </div>
+              </a>
+            </div>
+            <%end%>
+          </div>
+        </div><!-- /.menu-list -->
+        </div><!-- /.highlights -->
+      </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</section><!-- /.flat-highlights -->
+
+<section id="sc1" class="flat-highlights">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="highlights">
+          <div class="menu-list">
+            <div class="row">
+            <% %w(정형외과 한의원 안과 이비인후과 치과 약국).each_with_index do |d, idx|%>
+            <div class="col-xs-6 col-sm-4 col-md-2">
+              <!--  class="active" -->
+                <div class="text-center">
+                  <a href="#" title="">
+                <img src="<%= asset_path "cate/img#{idx+7}.png"%>" alt="">
+                <span class="department"><%=d %></span>
+                </div>
+              </a>
+            </div>
+            <%end%>
+          </div>
+        </div><!-- /.menu-list -->
+        </div><!-- /.highlights -->
+      </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</section><!-- /.flat-highlights -->
