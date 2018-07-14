@@ -39,6 +39,7 @@
 						check=true;
 				}
 			});
+
 			$('#category2').click(function(e){
 				e.preventDefault();
 				if (check){
@@ -51,11 +52,13 @@
 				}
 			});
 
-			$("#sub_rec_card").hide()
+			$("#sub_rec_card").hide();
+			$("#main_rec_card").hide();
 			$("#main_search").click(function(e){
 				e.preventDefault();
-				$("#sub_rec_card").show("slow")
-				var offset = $("#sub_rec_card").offset();
+				$("#main_rec_card").show("slow");
+				$("#sub_rec_card").show("slow");
+				var offset = $("#main_rec_card").offset();
 				$("html,body").animate({
 					scrollTop:offset.top
 				},"slow");

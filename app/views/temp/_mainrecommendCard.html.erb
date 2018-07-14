@@ -1,8 +1,11 @@
 
-<section class="flat-row flat-imagebox style3">
+<section id="main_rec_card" class="flat-row flat-imagebox style3">
 		<div class="container">
 			<div class="wrap-imagebox style3">
 				<div class="row">
+
+		<!--##################################################################  -->
+			<% ["세브란스 병원","삼성 병원","한마음 병원"].each do |h|%>
 					<div class="col-sm-12">
 						<div class="imagebox style2">
 							<div class="box-imagebox">
@@ -14,7 +17,7 @@
 								</div><!-- /.box-header -->
 								<div class="box-content">
 									<div class="box-title ad">
-										<span>Ad</span><a href="#" title="">AN Restaurant</a><i class="fa fa-check-circle" aria-hidden="true"></i>
+										<span>Ad</span><a href="#" title=""><%= h%></a><i class="fa fa-check-circle" aria-hidden="true"></i>
 										<div class="queue">
 											<i class="fa fa-star" aria-hidden="true"></i>
 											<i class="fa fa-star" aria-hidden="true"></i>
@@ -39,6 +42,9 @@
 							</div><!-- /.box-imagebox -->
 						</div><!-- /.imagebox style2 -->
 					</div><!-- /.col-sm-12 -->
+				<%end%>
+					<!--##################################################################  -->
+
 
 				</div><!-- /.row -->
 			</div><!-- /.container -->
