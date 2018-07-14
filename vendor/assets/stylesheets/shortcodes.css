@@ -1455,6 +1455,13 @@
 	background-color: #55acee;
 }
 
+.login-social a.kakao:before {
+	background-color: #FCCD03;
+}
+.login-social a.facebook:before {
+	background-color: #3b5997;
+}
+
 .login-social a:hover {
 	color: #fff;
 	background-color: #2c3e50;
@@ -1464,7 +1471,7 @@
 	content: '';
 	position: absolute;
 	display: block;
-	background-color: #3b5997;
+	background-color: #4ca1af;
 	opacity: 1;
 	visibility: visible;
 	transform: scale(1);
