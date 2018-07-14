@@ -21,13 +21,16 @@
   <!-- <link rel="stylesheet" type="text/css" href="stylesheets/responsive.css"> -->
 
   <!-- Favicon -->
-
   <link href="<%= asset_path 'icon/icon2.png'%>" rel="shortcut icon">
   <!-- 폰트 -->
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">
-  <style>
 
-#sc img:hover {
+
+  <!-- Javascript -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
+<style>
+  #sc img:hover {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
 }
@@ -35,8 +38,6 @@
   animation: shake 0.5s;
   animation-iteration-count: infinite;
 }
-
-
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
   10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -50,71 +51,22 @@
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
-
 .shine_star{
   color:	#FFD700;
 }
-  </style>
+</style>
 
-  <!-- Javascript -->
-
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
 </head>
 <body>
+<!--header(nav 포함)  -->
+<%= render 'temp/header'%>
+<!-- end header(nav 포함) -->
 
 <%= yield %>
 
-
-
+<!--header(nav 포함)  -->
+<%= render 'layouts/footer'%>
+<!--header(nav 포함)  -->
 </body>
-
-
-
-
-
-	<script>
-
-	$("#sc a").click(function(e) { e.preventDefault(); });
-	$("#sc1 a").click(function(e) { e.preventDefault(); });
-	var $new = $('#sc2');
-	$new.hide('#sc2')
-
-	var check =true;
-
-	$('#sc').click(function(){
-		if (check){
-			$('#sc').after($new);
-			$new.show('slow');
-			check=false;
-		}else{
-				$new.hide('show')
-				check=true;
-		}
-	})
-
-	$('#sc1').click(function(){
-		if (check){
-			$('#sc1').after($new);
-			$new.show('slow');
-			check=false;
-		}else{
-				$new.hide('show')
-				check=true;
-		}
-	})
-
-
-	$("#reccard").hide()
-	$("#gocard").click(function(e){
-		e.preventDefault();
-		$("#reccard").show("slow")
-		var offset = $("#reccard").offset();
-		$("html,body").animate({
-			scrollTop:offset.top
-		},"slow");
-	})
-
-	</script>
 
 </html>
