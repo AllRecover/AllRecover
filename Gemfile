@@ -1,6 +1,20 @@
 source 'https://rubygems.org'
 
 
+
+# 회원관리
+gem 'devise'
+
+# auth
+gem 'omniauth-facebook'
+gem 'omniauth-kakao', :git => 'https://github.com/hcn1519/omniauth-kakao'
+
+gem 'simple_form'
+
+gem 'figaro'
+
+gem 'pry-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use sqlite3 as the database for Active Record
@@ -35,6 +49,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rails_db'
 end
 
 group :development do
@@ -44,4 +59,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
