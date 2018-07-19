@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :kakao]
   # User.find_auth
@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
       user = User.find_by(email: auth.info.email)
       if user.nil? # User에 email을 쓰고 있는가
         if auth.provider == 'kakao'
-          p 'kakao???'
           user = User.new(
             name: auth.info.name,
             password: Devise.friendly_token[0,20],

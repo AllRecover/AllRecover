@@ -183,8 +183,8 @@
         var googleMap = function() {
             var data = JSON.parse('[{"address":"서울특별시 강남구 역삼동 테헤란로 212","content":"","status":"live"}]');
 
-            var lat = 37.5084159;
-            var lon = 127.0234687;
+            var lat = 37.5014269;
+            var lon = 127.0383351;
             // Gmap Defaults
             $('.map').gmap3({
                 map:{
@@ -263,7 +263,7 @@
                                         overlay:{
                                             address:val.address,
                                             options:{
-                                                content:  "<div class='infobox style2'><div class='img-box'><img src='images/icon/icon-map-01.png'></div><div class='text'><h3>멀티캠퍼스</h3><p>서울특별시 강남구 역삼동 테헤란로 212</p></div><div class='clearfix'></div></div>",
+                                                content:  "<div class='infobox style2'><div class='img-box'></div><div class='text'><h4>멀티캠퍼스</h4><p>서울특별시 강남구 역삼동 테헤란로 212</p></div><div class='clearfix'></div></div>",
                                                 offset:{
                                                     y:-200,
                                                     x:-115
@@ -543,7 +543,7 @@
                                         overlay:{
                                             address:val.address,
                                             options:{
-                                                content:  "<div class='infobox'><div class='logo'>D</div><div class='text'><h3>Dailist</h3><p>31 Ven HoVan Chuong Street,<br />Ha Noi, Viet Nam</p></div><div class='clearfix'></div></div>",
+                                                content:  "<div class='infobox'><div class='logo'>D</div><div class='text'><h4>Dailist</h4><p>31 Ven HoVan Chuong Street,<br />Ha Noi, Viet Nam</p></div><div class='clearfix'></div></div>",
                                                 offset:{
                                                     y:-200,
                                                     x:-115
@@ -826,6 +826,7 @@
             $.each(data, function(key, val) {
                 $('.map-4').gmap3({
                     marker:{
+
                         values:[{
                             address:val.address,
                             options:{icon: "/assets/icon/map.png"},
@@ -835,7 +836,7 @@
                                         overlay:{
                                             address:val.address,
                                             options:{
-                                                content:  "<div class='infobox style2'><div class='img-box'><img src='images/icon/icon-map-01.png'></div><div class='text'><h3>AN Restaurant</h3><p>2/51 Hoang Cau Street,<br />Ha Noi, Viet Nam</p></div><div class='clearfix'></div></div>",
+                                                content:  "<div class='infobox style2'><div class='img-box'></div><div class='text'><h4>AN Restaurant</h4><p>2/51 Hoang Cau Street,<br />Ha Noi, Viet Nam</p></div><div class='clearfix'></div></div>",
                                                 offset:{
                                                     y:-200,
                                                     x:-115

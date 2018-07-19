@@ -27,6 +27,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_path
     end
   end
+
+  def after_sign_in_path_for(resource)
+    auth = request.env['omniauth.auth']
+    @identity = Identity.find_auth(auth)
+    @user = User.find(current_user.id)
+    if @user.persisted?
+      if auth.provider == 'kakao' && @user.email.empty?
+        return users_info_path
+      end
+    end
+    '/'
+  end
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
