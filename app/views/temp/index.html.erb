@@ -1,0 +1,66 @@
+
+		<!-- SearchBox  -->
+		<%= render 'temp/searchbox'%>
+		<!-- end SearchBox  -->
+
+		<!-- category -->
+		<%= render 'temp/cate'%>
+		<!-- end category -->
+
+		<!-- drill category -->
+		<%= render 'temp/drillcate'%>
+		<!-- end drill category -->
+
+		<!-- mainrecommendCard -->
+		<%= render 'temp/mainrecommendCard'%>
+		<!-- end mainrecommendCard -->
+
+		<!-- subrecommendCard -->
+		<%= render 'temp/subrecommendCard'%>
+		<!-- end subrecommendCard -->
+
+
+
+			<script>
+
+
+			var $new = $('#drillcate');
+			$new.hide('#drillcate');
+
+			var check =true;
+			$('#category1').click(function(e){
+				e.preventDefault();
+				if (check){
+					$('#category1').after($new);
+					$new.show('slow');
+					check=false;
+				}else{
+						$new.hide('show')
+						check=true;
+				}
+			});
+
+			$('#category2').click(function(e){
+				e.preventDefault();
+				if (check){
+					$('#category2').after($new);
+					$new.show('slow');
+					check=false;
+				}else{
+						$new.hide('show')
+						check=true;
+				}
+			});
+
+			$("#sub_rec_card").hide();
+			$("#main_rec_card").hide();
+			$("#main_search").click(function(e){
+				e.preventDefault();
+				$("#main_rec_card").show("slow");
+				$("#sub_rec_card").show("slow");
+				var offset = $("#main_rec_card").offset();
+				$("html,body").animate({
+					scrollTop:offset.top
+				},"slow");
+			})
+			</script>

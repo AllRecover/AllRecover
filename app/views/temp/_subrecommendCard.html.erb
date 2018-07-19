@@ -1,0 +1,100 @@
+
+<section id="sub_rec_card" class="flat-row flat-imagebox style3">
+   <div class="container">
+      <div class="wrap-imagebox style3">
+         <% 3.times do |i|%>
+         <%if i!=0%>
+            <div class="height50"></div>
+         <%end%>
+         <div class="row">
+            <% ["세브란스 병원","삼성 병원","한마음 병원"].each do |h|%>
+            <div class="col-md-4">
+             <div class="imagebox style1">
+                <div class="box-imagebox">
+                   <div class="box-content">
+                      <div class="box-title">
+                         <a href="#" title=""><%=h%></a><i class="fa fa-check-circle" aria-hidden="true"></i>
+                      </div>
+                      <br />
+                      <!-- star -->
+                      <div class="shine_star">
+                         <div class="queue">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                         </div>
+                      </div>
+                        <!-- badge -->
+                        <span class="badge badge-expert">전문</span>
+                         <span class="badge badge-recommend">추천</span>
+                        <span class="badge badge-many">착한 병원</span>
+
+                      <ul class="rating">
+                         <li>010 2834 0595</li><br />
+                         <li>AM 09:00 - PM 06:00</li><br />
+                         <li>강남점</li><br />
+                      </ul>
+                      <div class="box-desc">
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </div>
+                      <div class="box-desc">
+                           <!-- <img src="<%= asset_path 'icon/a1.png'%>" alt="" style="width: 50%;height: 50%;"> -->
+                     </div>
+                   </div><!-- /.box-content -->
+                   <ul class="location">
+                      <li class="address"><span class="ti-location-pin"></span>Seoul, Korea</li>
+                      <li class="open">Open Now !</li>
+                   </ul><!-- /.location -->
+                </div><!-- /.box-imagebox -->
+             </div><!-- /.imagebox style1 -->
+            </div><!-- /.col-md-4 -->
+         <%end%>
+         </div><!-- /.row -->
+         <%end%>
+         <div class="row">
+            <div class="col-md-12">
+               <div class="btn-more">
+                  <a href="#" title="">더보기</a>
+               </div>
+            </div>  <!--/ btn more-->
+         </div><!-- /.row  -->
+      </div>
+
+   </div><!-- /.container -->
+</section><!-- /.flat-imagebox style3 -->
+
+
+
+
+<script>
+
+// custom btn more
+var default_sub_len =3;
+var loadMore_s3_custom = function () {
+      $(".wrap-imagebox.style3 .imagebox.style1").slice(0, 3).show();
+
+      $(".btn-more").on('click', function (e) {
+            e.preventDefault();
+            alert($(".wrap-imagebox.style3 .imagebox.style1:hidden").length)
+
+            //숨겨진 sub card 3개 미만 일때
+            if ($(".wrap-imagebox.style3 .imagebox.style1:hidden").length<3){
+               default_sub_len = $(".wrap-imagebox.style3 .imagebox.style1:hidden").length
+            }
+            $(".wrap-imagebox.style3 .imagebox.style1:hidden").slice(0, default_sub_len).slideDown(600);
+
+            //마지막
+            if ($(".wrap-imagebox.style3 .imagebox.style1:hidden").length == 0) {
+                  $(".btn-more").fadeOut("slow");
+            }
+            $('html,body').animate({
+                  scrollTop: $(this).offset().top - 150
+            }, 500);
+      });
+};
+$(function(){
+    loadMore_s3_custom();
+})
+</script>

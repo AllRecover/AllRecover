@@ -1,0 +1,37 @@
+<section class="flat-row flat-login style2 parallax1">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2">
+					</div><!-- /.col-lg-2 -->
+					<div class="col-lg-4 col-sm-6">
+						<div class="login-form style2">
+							<h3>다나아 회원 가입</h3>
+              <%= simple_form_for(current_user, url: users_info_path) do |f|%>
+              <%= f.error_notification %>
+								<!-- <div class="wrap-login firstname">
+									<label>First name</label>
+									<input type="text" class="first-name" name="firstname">
+								</div>
+								<div class="wrap-login lastname">
+									<label>Last name</label>
+									<input type="text" class="last-name" name="lastname">
+								</div> -->
+								<div class="wrap-login">
+                  <%= f.input :email, required: true, autofocus: true %>
+								</div>
+                <hr>
+
+								<div class="btn-more">
+                  <%= f.button :submit,"회원가입 하기" %><br />
+								</div>
+              <% end %>
+						</div><!-- /.login-form style2 -->
+					</div><!-- /.col-lg-4 col-sm-6 -->
+					<div class="col-lg-5 col-sm-6">
+					</div><!-- /.col-lg-5 col-sm-6 -->
+					<div class="col-lg-1">
+					</div><!-- /.col-lg-1 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+			<div class="overlay"></div>
+		</section><!-- /.flat-login style2 -->
