@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+
   def info
     if request.patch? && params[:user]
       if current_user.update(params.require(:user).permit(:email))
