@@ -26,3 +26,11 @@
 .container-fluid{
     padding-top: 30px;
 }
+.img-circular{
+ width: 80px;
+ height: 80px;
+ background-size: cover;
+ border-radius: 40px;
+ -webkit-border-radius: 40px;
+ -moz-border-radius: 40px;
+}
