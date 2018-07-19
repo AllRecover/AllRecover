@@ -1048,7 +1048,7 @@
                 e.preventDefault();
                 $(".wrap-imagebox.style3 .imagebox.style2:hidden").slice(0, 2).slideDown(600);
                 if ($(".wrap-imagebox.style3 .imagebox.style2:hidden").length == 0) {
-                    $(".wrap-imagebox.style3 .btn-more").fadeOut('slow');
+                    //$(".wrap-imagebox.style3 .btn-more").fadeOut('slow');
                 }
                 $('html,body').animate({
                     scrollTop: $(this).offset().top - 150

@@ -71,17 +71,25 @@
 <script>
 
 // custom btn more
+var default_sub_len =3;
+
 var loadMore_s3 = function () {
 		$(".wrap-imagebox.style3 .imagebox.style1").slice(0, 3).show();
 
 		$(".wrap-imagebox.style3 .btn-more").on('click', function (e) {
 				e.preventDefault();
-				$(".wrap-imagebox.style3 .imagebox.style1:hidden").slice(0, 3).slideDown(600);
+				//alert($(".wrap-imagebox.style3 .imagebox.style1:hidden").length)
 
-				if ($(".wrap-imagebox.style3 .imagebox.style1:hidden").length == 0) {
-						$(".wrap-imagebox.style3 .btn-more").fadeOut('slow');
+				//숨겨진 sub card 3개 미만 일때
+				if ($(".wrap-imagebox.style3 .imagebox.style1:hidden").length<3){
+					default_sub_len = $(".wrap-imagebox.style3 .imagebox.style1:hidden").length
 				}
+				$(".wrap-imagebox.style3 .imagebox.style1:hidden").slice(0, default_sub_len).slideDown(600);
 
+				//마지막
+				if ($(".wrap-imagebox.style3 .imagebox.style1:hidden").length == 0) {
+						$(".btn-more").fadeOut("slow");
+				}
 				$('html,body').animate({
 						scrollTop: $(this).offset().top - 150
 				}, 500);
