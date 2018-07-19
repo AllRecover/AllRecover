@@ -9,7 +9,14 @@ Rails.application.routes.draw do
   end
 
   root "temp#index"
+  # temp view
   get 'temp/index'
+  get 'temp/map'
+
+
+  # detail view
+  get 'detail/index'
+  get 'detail/chat'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -71,7 +71,7 @@
                 }
             });
 
-            $('.btn-menu').on('click', function() {         
+            $('.btn-menu').on('click', function() {
                 $('#mainnav-mobi').slideToggle(300);
                 $(this).toggleClass('active');
                 return false;
@@ -88,17 +88,17 @@
             if ( $('body').hasClass('header_sticky') ) {
                 var nav = $('.header');
                 if ( nav.size() != 0 ) {
-                    
+
                     var offsetTop = $('.header').offset().top,
                         headerHeight = $('.header').height(),
-                        injectSpace = $('<div />', { height: headerHeight }).insertAfter(nav);   
-                        injectSpace.hide();                 
+                        injectSpace = $('<div />', { height: headerHeight }).insertAfter(nav);
+                        injectSpace.hide();
 
                     $(window).on('load scroll', function(){
                         if ( $(window).scrollTop() > offsetTop + 100 ) {
                             injectSpace.show();
                             $('.header').addClass('downscrolled');
-                            
+
                         } else {
                             $('.header').removeClass('downscrolled');
                             injectSpace.hide();
@@ -179,23 +179,21 @@
                 });
             });
         }; // Filter Toggle
-
+//================================================수정=============================================
         var googleMap = function() {
-            var data = JSON.parse('[{"address":"8/178 Nguyễn Lương Bằng, Quang Trung, Đống Đa, Hà Nội, Việt Nam","content":"","status":"live"},{"address":"ngõ 19 phố Trần Quang Diệu, Ô Chợ Dừa, Đống Đa, Hà Nội, Việt Nam","content":""},{"address":"The Life School, Tầng 6, nhà D1, ngõ, 161 Nguyễn Lương Bằng, Quang Trung, Đống Đa, Hà Nội, Việt Nam","content":""}]');
-            var data1 = JSON.parse('[{"address1":"3818 Fort Hamilton Pkwy, Brooklyn, NY 11218","content":"","status":"live"},{"address2":"Brooklyn, Tiểu bang New York 11230","content":""}]');
-            var data2 = JSON.parse('[{"address":"84 Trần Quang Diệu, Ô Chợ Dừa, Đống Đa, Hà Nội, Việt Nam","content":"","status":"live"}]');
-            var data3 = JSON.parse('[{"address":"Thành phố New York, Tiểu bang New York","content":""}]');
-            var data4 = JSON.parse('[{"address":"8/178 Nguyễn Lương Bằng, Chợ Dừa, Đống Đa, Hà Nội, Việt Nam","content":""}]');
+            var data = JSON.parse('[{"address":"서울특별시 강남구 역삼동 테헤란로 212","content":"","status":"live"}]');
 
+            var lat = 37.5084159;
+            var lon = 127.0234687;
             // Gmap Defaults
             $('.map').gmap3({
                 map:{
                     options:{
-                        center:[21.016760, 105.826886],
+                        center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
-                        zoom: 17
+                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                        zoom: 14
                     },
                     navigationControl: true,
                    scrollwheel: false,
@@ -206,7 +204,7 @@
             $('.map-1').gmap3({
                 map:{
                     options:{
-                        center:[40.636429, -73.980047],
+                        center:[lat, lon],
                         zoom: 14
                     }
                 }
@@ -215,11 +213,11 @@
             $('.map-2').gmap3({
                 map:{
                     options:{
-                        center:[21.015396, 105.824299],
-                       mapTypeId: 'themesflat_style',
+                        center:[lat, lon],
+                        mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
-                        zoom: 17,
+                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                        zoom: 14,
                         animation: google.maps.Animation.BOUNCE
                     },
                     navigationControl: true,
@@ -231,10 +229,10 @@
             $('.map-3').gmap3({
                 map:{
                     options:{
-                        center:[40.719625, -74.004715],
+                        center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 13
                     }
                 }
@@ -243,11 +241,11 @@
             $('.map-4').gmap3({
                 map:{
                     options:{
-                        center:[21.017114, 105.826939],
+                        center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
-                        zoom: 17
+                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                        zoom: 14
                     }
                 }
             });
@@ -258,14 +256,14 @@
                     marker:{
                         values:[{
                             address:val.address,
-                            options:{icon: "images/icon/map.png"},
+                            options:{icon: "/assets/icon/map.png"},
                             events: {
                                 mouseover: function() {
                                     $(this).gmap3({
                                         overlay:{
                                             address:val.address,
                                             options:{
-                                                content:  "<div class='infobox style2'><div class='img-box'><img src='images/icon/icon-map-01.png'></div><div class='text'><h3>AN Restaurant</h3><p>2/51 Hoang Cau Street,<br />Ha Noi, Viet Nam</p></div><div class='clearfix'></div></div>",
+                                                content:  "<div class='infobox style2'><div class='img-box'><img src='images/icon/icon-map-01.png'></div><div class='text'><h3>멀티캠퍼스</h3><p>서울특별시 강남구 역삼동 테헤란로 212</p></div><div class='clearfix'></div></div>",
                                                 offset:{
                                                     y:-200,
                                                     x:-115
@@ -401,16 +399,16 @@
                 });
             });
 
-            $.each(data1, function(key, val) {
+            $.each(data, function(key, val) {
                 $('.map-1').gmap3({
                     marker:{
                         values:[{
                             address:val.address1,
-                            options:{icon: "images/icon/map-02.png"}
+                            options:{icon: "/assets/icon/map-02.png"}
                         },
                         {
                             address:val.address2,
-                            options:{icon: "images/icon/map-03.png"}
+                            options:{icon: "/assets/icon/map-03.png"}
                         }]
                     },
                     styledmaptype:{
@@ -533,12 +531,12 @@
             });
 
             // Json Loop
-            $.each(data2, function(key, val) {
+            $.each(data, function(key, val) {
                 $('.map-2').gmap3({
                     marker:{
                         values:[{
                             address:val.address,
-                            options:{icon: "images/icon/map.png"},
+                            options:{icon: "/assets/icon/map.png"},
                             events: {
                                 mouseover: function() {
                                     $(this).gmap3({
@@ -700,7 +698,7 @@
             });
 
             // Json Loop
-            $.each(data3, function(key, val) {
+            $.each(data, function(key, val) {
                 $('.map-3').gmap3({
                     styledmaptype:{
                         id: "themesflat_style",
@@ -825,12 +823,12 @@
             });
 
             // Json Loop
-            $.each(data4, function(key, val) {
+            $.each(data, function(key, val) {
                 $('.map-4').gmap3({
                     marker:{
                         values:[{
                             address:val.address,
-                            options:{icon: "images/icon/map.png"},
+                            options:{icon: "/assets/icon/map.png"},
                             events: {
                                 mouseover: function() {
                                     $(this).gmap3({
@@ -998,7 +996,7 @@
                 });
             }
         }; // Google Map
-
+//=============================================================================================
         var slideSearch = function() {
             if ( $('body').hasClass('slider') ) {
                 $("#ex8").slider({
@@ -1060,7 +1058,7 @@
                 e.preventDefault();
                 $(".wrap-imagebox.style3 .imagebox.style2:hidden").slice(0, 2).slideDown(600);
                 if ($(".wrap-imagebox.style3 .imagebox.style2:hidden").length == 0) {
-                    $(".wrap-imagebox.style3 .btn-more").fadeOut('slow');
+                    // $(".wrap-imagebox.style3 .btn-more").fadeOut('slow');
                 }
                 $('html,body').animate({
                     scrollTop: $(this).offset().top - 150
@@ -1103,12 +1101,12 @@
             });
         }; // Go Top
 
-        var removePreloader = function() { 
-            $(window).load(function() { 
+        var removePreloader = function() {
+            $(window).load(function() {
                 setTimeout(function() {
-                    $('.preloader').hide(); }, 500           
-                ); 
-            });  
+                    $('.preloader').hide(); }, 500
+                );
+            });
         }; // Remove Preloader
 
 
@@ -1123,7 +1121,7 @@
         slideSearch();
         loadMore();
         loadMore_s2();
-        loadMore_s3();
+        //loadMore_s3();
         loadMore_s4();
         loadMore_comment();
         parallax();
