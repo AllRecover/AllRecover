@@ -179,7 +179,7 @@
                 });
             });
         }; // Filter Toggle
-
+//================================================수정=============================================
         var googleMap = function() {
             var data = JSON.parse('[{"address":"서울특별시 강남구 역삼동 테헤란로 212","content":"","status":"live"}]');
 
@@ -192,7 +192,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['지도', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 14
                     },
                     navigationControl: true,
@@ -216,7 +216,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['지도', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 14,
                         animation: google.maps.Animation.BOUNCE
                     },
@@ -232,7 +232,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['지도', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 13
                     }
                 }
@@ -244,7 +244,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['지도', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 14
                     }
                 }
@@ -996,7 +996,7 @@
                 });
             }
         }; // Google Map
-
+//=============================================================================================
         var slideSearch = function() {
             if ( $('body').hasClass('slider') ) {
                 $("#ex8").slider({
@@ -1058,7 +1058,7 @@
                 e.preventDefault();
                 $(".wrap-imagebox.style3 .imagebox.style2:hidden").slice(0, 2).slideDown(600);
                 if ($(".wrap-imagebox.style3 .imagebox.style2:hidden").length == 0) {
-                    $(".wrap-imagebox.style3 .btn-more").fadeOut('slow');
+                    // $(".wrap-imagebox.style3 .btn-more").fadeOut('slow');
                 }
                 $('html,body').animate({
                     scrollTop: $(this).offset().top - 150
@@ -1121,7 +1121,7 @@
         slideSearch();
         loadMore();
         loadMore_s2();
-        loadMore_s3();
+        //loadMore_s3();
         loadMore_s4();
         loadMore_comment();
         parallax();
