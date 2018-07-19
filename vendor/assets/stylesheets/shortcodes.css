@@ -1466,7 +1466,7 @@
 	content: '';
 	position: absolute;
 	display: block;
-	background-color: #3b5997;
+	background-color: #4ca1af;
 	opacity: 1;
 	visibility: visible;
 	transform: scale(1);
@@ -1490,6 +1490,12 @@
 .login-social p {
 	text-align: center;
 	margin: 12px 0 15px;
+}
+.login-social a.kakao:before {
+	background-color: #FCCD03;
+}
+.login-social a.facebook:before {
+	background-color: #3b5997;
 }
 
 /* Login Form Style2 */

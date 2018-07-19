@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '72b527e6912df10d697b03824b2c74fb968721a15acc92f4979573c6c80c431159deb6c397a1d482309059e5c108516a1f86e8528119e410293472ceb2649f68'
+  # config.secret_key = '5efbbb5427ae5da85f3f9d12114429fb9621520fed405b2d2778099fab0ae3ca6611edfa31f35708727420fcc28ca088d52047dd4d539967554492f742f958b5'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -18,8 +18,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'email-smtp.us-east-1.amazonaws.com'
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.mailer_sender = 'developer.broc@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -115,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'd192c311aa0de82a38fbcccd027b2c91110892a8b18e8348566c192368c7072acd128819d886cbe403ba64d5a7cc6a4d12242a01cda0073a3f64b081572880a3'
+  # config.pepper = '8026f9f9d0524ac49f9d83b390725d5a84a27895270f4b3e0045c995f154c92c5465b153b879efa9ed20ee688cdb8361e59e36307366400e99e338c756e2dbb0'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -230,7 +229,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -258,6 +257,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET']
+  config.omniauth :kakao, ENV['KAKAO_APP_KEY'], redirect_path: '/users/auth/kakao/callback'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

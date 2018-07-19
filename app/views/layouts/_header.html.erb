@@ -2,7 +2,7 @@
 		<!-- Preloader -->
 		<div class="preloader">
 			<div class="clear-loading loading-effect-2">
-				<span></span>
+				<span>sdfsdf</span>
 			</div>
 		</div><!-- /.preloader -->
 
@@ -79,12 +79,22 @@
 									 			</li>
 									 		</ul>
 									 	</li>
-									 	<li>
-									 		<a href="login.html" title="">Log In</a>
-									 	</li>
-									 	<li>
-									 		<a href="register.html" title="">Sign Up</a>
-									 	</li>
+                    <% if user_signed_in? %>
+										 <li>
+										  <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+											</li>
+											<li>
+												<%= image_tag current_user.profile_img, class: "rounded-circle" %>
+											  <span><%= current_user.email %></span>
+											</li>
+										<% else %>
+											<li>
+												<%= link_to 'Log In', new_user_session_path %>
+											</li>
+											<li>
+												<%= link_to 'Sign Up', new_user_registration_path %>
+											</li>
+										<% end %>
 									 </ul>
 								</nav><!-- /.mainnav -->
 								<div class="button-header">
