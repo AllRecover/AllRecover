@@ -71,7 +71,7 @@
                 }
             });
 
-            $('.btn-menu').on('click', function() {         
+            $('.btn-menu').on('click', function() {
                 $('#mainnav-mobi').slideToggle(300);
                 $(this).toggleClass('active');
                 return false;
@@ -88,17 +88,17 @@
             if ( $('body').hasClass('header_sticky') ) {
                 var nav = $('.header');
                 if ( nav.size() != 0 ) {
-                    
+
                     var offsetTop = $('.header').offset().top,
                         headerHeight = $('.header').height(),
-                        injectSpace = $('<div />', { height: headerHeight }).insertAfter(nav);   
-                        injectSpace.hide();                 
+                        injectSpace = $('<div />', { height: headerHeight }).insertAfter(nav);
+                        injectSpace.hide();
 
                     $(window).on('load scroll', function(){
                         if ( $(window).scrollTop() > offsetTop + 100 ) {
                             injectSpace.show();
                             $('.header').addClass('downscrolled');
-                            
+
                         } else {
                             $('.header').removeClass('downscrolled');
                             injectSpace.hide();
@@ -1040,19 +1040,7 @@
             });
         }; // Load More S2
 
-        var loadMore_s3 = function () {
-            $(".wrap-imagebox.style3 .imagebox.style1").slice(0, 6).show();
-            $(".wrap-imagebox.style3 .btn-more").on('click', function (e) {
-                e.preventDefault();
-                $(".wrap-imagebox.style3 .imagebox.style1:hidden").slice(0, 2).slideDown(600);
-                if ($(".wrap-imagebox.style3 .imagebox.style1:hidden").length == 0) {
-                    $(".wrap-imagebox.style3 .btn-more").fadeOut('slow');
-                }
-                $('html,body').animate({
-                    scrollTop: $(this).offset().top - 150
-                }, 1000);
-            });
-        }; // Load More S3
+
 
         var loadMore_s4 = function () {
             $(".wrap-imagebox.style3 .imagebox.style2").slice(0, 3).show();
@@ -1103,12 +1091,12 @@
             });
         }; // Go Top
 
-        var removePreloader = function() { 
-            $(window).load(function() { 
+        var removePreloader = function() {
+            $(window).load(function() {
                 setTimeout(function() {
-                    $('.preloader').hide(); }, 500           
-                ); 
-            });  
+                    $('.preloader').hide(); }, 500
+                );
+            });
         }; // Remove Preloader
 
 

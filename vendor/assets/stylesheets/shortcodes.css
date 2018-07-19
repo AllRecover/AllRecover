@@ -259,9 +259,11 @@
 }
 
 .flat-imagebox.style3 {
-    padding: 79px 0 93px;
+    padding: 79px 0 70px;
 }
-
+#sub_rec_card{
+	padding: 0px 0 93px;
+}
 .imagebox.style3,
 .imagebox.style4,
 .wrap-imagebox.style3 .imagebox.style1,
