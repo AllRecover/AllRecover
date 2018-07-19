@@ -69,11 +69,12 @@
 
 
 <script>
-
+$(function(){
+	 loadMore_s3_custom();
+})
 // custom btn more
 var default_sub_len =3;
-
-var loadMore_s3 = function () {
+var loadMore_s3_custom = function () {
 		$(".wrap-imagebox.style3 .imagebox.style1").slice(0, 3).show();
 
 		$(".wrap-imagebox.style3 .btn-more").on('click', function (e) {

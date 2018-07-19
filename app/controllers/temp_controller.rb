@@ -1,8 +1,7 @@
 class TempController < ApplicationController
   def index
   end
-  def r
+  def detail  
 
-    
   end
 end

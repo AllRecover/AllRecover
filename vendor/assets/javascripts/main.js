@@ -1040,7 +1040,19 @@
             });
         }; // Load More S2
 
-
+        var loadMore_s3 = function () {
+            $(".wrap-imagebox.style3 .imagebox.style1").slice(0, 6).show();
+            $(".wrap-imagebox.style3 .btn-more").on('click', function (e) {
+                e.preventDefault();
+                $(".wrap-imagebox.style3 .imagebox.style1:hidden").slice(0, 2).slideDown(600);
+                if ($(".wrap-imagebox.style3 .imagebox.style1:hidden").length == 0) {
+                    $(".wrap-imagebox.style3 .btn-more").fadeOut('slow');
+                }
+                $('html,body').animate({
+                    scrollTop: $(this).offset().top - 150
+                }, 1000);
+            });
+        }; // Load More S3
 
         var loadMore_s4 = function () {
             $(".wrap-imagebox.style3 .imagebox.style2").slice(0, 3).show();
@@ -1100,23 +1112,24 @@
         }; // Remove Preloader
 
 
-    $(function() {
-        responsiveMenu();
-        headerFixed();
-        slideTeam();
-        searchButton();
-        filterToggle();
-        CountDown();
-        googleMap();
-        slideSearch();
-        loadMore();
-        loadMore_s2();
-        loadMore_s3();
-        loadMore_s4();
-        loadMore_comment();
-        parallax();
-        goTop();
-        removePreloader();
-    });
+            $(function() {
+                responsiveMenu();
+                headerFixed();
+                slideTeam();
+                searchButton();
+                filterToggle();
+                CountDown();
+                googleMap();
+                slideSearch();
+                loadMore();
+                loadMore_s2();
+                loadMore_s3();
+                loadMore_s4();
+                loadMore_comment();
+                parallax();
+                goTop();
+                removePreloader();
+              
+            });
 
 })(jQuery);
