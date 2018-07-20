@@ -11,13 +11,11 @@
 							<h3>다나아 회원 선호도 변경</h3>
 
 
-							<form action="#" method="get" accept-charset="utf-8">
-
-									<div class="box-slider">
-										<input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
-										<span>Radius (meter)</span>
-									</div>
-								</form><!-- /form -->
+							<%= simple_form_for @preference, url: users_preference_path do |f|%>
+								<%= f.input :dist %>
+								<%= f.input :price %>
+								<%= f.input :grade %>
+							<%end%>
 						</div><!-- /.login-form style2 -->
 					</div><!-- /.col-lg-4 col-sm-6 -->
 					<div class="col-lg-5 col-sm-6">

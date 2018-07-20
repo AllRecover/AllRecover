@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'detail/index'
+
   devise_for :users, controllers: {
       sessions: 'users/sessions',
       omniauth_callbacks: 'users/omniauth_callbacks'
@@ -15,7 +17,6 @@ Rails.application.routes.draw do
   root "temp#index"
 
   get 'temp/index'
-  get 'temp/detail'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
