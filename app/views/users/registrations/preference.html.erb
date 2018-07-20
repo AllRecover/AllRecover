@@ -1,33 +1,40 @@
-<section class="flat-row flat-login style2 parallax1">
+
+
+
+<section class="flat-row flat-login parallax1">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-2">
 					</div><!-- /.col-lg-2 -->
 					<div class="col-lg-4 col-sm-6">
-						<div class="login-form style2">
-							<h3>다나아 회원 성향 조사</h3>
-								<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-							  <%= f.error_notification %>
-								<!-- <div class="wrap-login firstname">
-									<label>First name</label>
-									<input type="text" class="first-name" name="firstname">
-								</div>
-								<div class="wrap-login lastname">
-									<label>Last name</label>
-									<input type="text" class="last-name" name="lastname">
-								</div> -->
-								<div class="wrap-login">
-                  <%= f.input :email, required: true, autofocus: true %>
-								</div>
-                <hr>
+						<div class="login-form">
+							<h3>다나아 회원 선호도 변경</h3>
 
-								<div class="btn-more">
-                  <%= f.button :submit,"회원가입 하기" %><br />
-								</div>
-              <% end %>
+
+							<form action="#" method="get" accept-charset="utf-8">
+
+									<div class="box-slider">
+										<input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+										<span>Radius (meter)</span>
+									</div>
+								</form><!-- /form -->
 						</div><!-- /.login-form style2 -->
 					</div><!-- /.col-lg-4 col-sm-6 -->
 					<div class="col-lg-5 col-sm-6">
+            <div class="login-social">
+
+              <%= link_to "선호도 변경"%>
+
+              <hr />
+
+              <p>회원 탈퇴 하시겠습니까?
+              <%= link_to "회원 탈퇴", registration_path(resource_name), data: { confirm: "진짜로요?" }, method: :delete %></p>
+
+              <%= link_to "뒤로가기", :back %>
+							<!-- <a href="#" class="facebook" title=""><span class="ti-facebook"></span>Login with Facebook</a>
+							<p>or</p>
+							<a href="#" class="twitter" title=""><span class="ti-twitter-alt"></span>Login with Twitter</a> -->
+						</div><!-- /.login-social -->
 					</div><!-- /.col-lg-5 col-sm-6 -->
 					<div class="col-lg-1">
 					</div><!-- /.col-lg-1 -->
@@ -35,3 +42,4 @@
 			</div><!-- /.container -->
 			<div class="overlay"></div>
 		</section><!-- /.flat-login style2 -->
+		<script>

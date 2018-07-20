@@ -10,6 +10,7 @@
 						<div class="login-form">
 							<h3>회원 정보 수정</h3>
               <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              
                 <%= f.error_notification %>
 								<!-- <div class="wrap-login firstname">
 									<label>First name</label>
@@ -51,7 +52,7 @@
 					<div class="col-lg-5 col-sm-6">
             <div class="login-social">
 
-              <%= link_to "선호도 변경"%>
+              <%= link_to "선호도 변경", users_preference_path%>
 
               <hr />
 

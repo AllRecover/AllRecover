@@ -17,8 +17,11 @@
 
 //= require jquery.min
 //= require bootstrap.min
+//= require bootstrap-slider.min
 //= require easing
 //= require gmap3.min
 //= require parallax
 //= require owl.carousel
-//= require main.js
+//= require main
+//= require smoothscroll
+//= snazzy-info-wiondow.min

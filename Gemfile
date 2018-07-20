@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-
-
 # 회원관리
 gem 'devise'
 
@@ -12,6 +10,7 @@ gem 'omniauth-kakao', :git => 'https://github.com/hcn1519/omniauth-kakao'
 gem 'simple_form'
 
 gem 'figaro'
+gem 'pusher'
 
 gem 'pry-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

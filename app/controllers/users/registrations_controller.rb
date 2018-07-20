@@ -6,8 +6,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if request.patch? && params[:user]
       if current_user.update(params.require(:user).permit(:email))
         sign_in(current_user, bypass: true)
-        redirect_to '/', notice: '이메일 정보가 등록되었습니다.'
       end
+    end
+  end
+
+  def preference
+    if user_signed_in?
+      @preference =  Preference.find_by_id(current_user.id)
+      p @preference
+      # respond_to do |format|
+      #   format.html
+      # end
+    else
+      redirect_to '/users/sign_in', notice: '먼저 로그인 해주세요'
     end
   end
 
