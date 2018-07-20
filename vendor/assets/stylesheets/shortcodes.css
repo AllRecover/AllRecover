@@ -195,7 +195,7 @@
 	float: left;
 	text-align: center;
 	width: 16.6666667%;
-	padding: 40px 0px 27px;
+	padding: 20px 0px 27px;
 	position: relative;
 }
 
@@ -259,9 +259,11 @@
 }
 
 .flat-imagebox.style3 {
-    padding: 79px 0 93px;
+    padding: 79px 0 70px;
 }
-
+#sub_rec_card{
+	padding: 0px 0 93px;
+}
 .imagebox.style3,
 .imagebox.style4,
 .wrap-imagebox.style3 .imagebox.style1,
@@ -1367,7 +1369,7 @@
 /* Flat Login
 -------------------------------------------------------------- */
 .flat-login {
-	padding: 182px 0 270px;
+	padding: 60px 0 90px;
 	color: #fff;
 }
 
@@ -1464,7 +1466,7 @@
 	content: '';
 	position: absolute;
 	display: block;
-	background-color: #3b5997;
+	background-color: #4ca1af;
 	opacity: 1;
 	visibility: visible;
 	transform: scale(1);
@@ -1488,6 +1490,12 @@
 .login-social p {
 	text-align: center;
 	margin: 12px 0 15px;
+}
+.login-social a.kakao:before {
+	background-color: #FCCD03;
+}
+.login-social a.facebook:before {
+	background-color: #3b5997;
 }
 
 /* Login Form Style2 */
@@ -1575,7 +1583,7 @@
 
 /* Infobox Style2 */
 .infobox.style2 {
-	width: 400px;
+	width: 200px;
 }
 
 .infobox.style2 .img-box img {

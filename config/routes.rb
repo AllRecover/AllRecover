@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'detail/index'
+
   devise_for :users, controllers: {
       sessions: 'users/sessions',
       omniauth_callbacks: 'users/omniauth_callbacks'
   }
   devise_scope :user do
     match 'users/info' => 'users/registrations#info', via: [:get, :patch] # 하나의 액션에서 get, patch 처리
+
+    get "users/preference" => 'users/registrations#preference'
   end
 
+
+
   root "temp#index"
+
   get 'temp/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

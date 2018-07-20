@@ -5,6 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :kakao]
   # User.find_auth
+  after_commit :preference_create, on: :create
+  has_one :preference
+
+  def preference_create
+    Preference.create(user_id: self.id)
+  end
+
   def self.find_auth(auth, signed_in_resource=nil)
     # Identity가 있는지?
     identity=Identity.find_auth(auth)
@@ -17,7 +24,7 @@ class User < ActiveRecord::Base
       user = User.find_by(email: auth.info.email)
       if user.nil? # User에 email을 쓰고 있는가
         if auth.provider == 'kakao'
-          p 'kakao???'
+
           user = User.new(
             name: auth.info.name,
             password: Devise.friendly_token[0,20],
@@ -39,7 +46,10 @@ class User < ActiveRecord::Base
       identity.user = user
       identity.save!
     end
+
     user
+
+    
   end
 
   def email_required?
