@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
 
+#chats
+gem 'websocket-rails'
+gem 'faye'
+gem 'thin', require: false
+gem 'sync'
 
 # 회원관리
 gem 'devise'

@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require turbolinks
+//= require sync 
 //= require_tree .
 
 //= require jquery.min
@@ -22,3 +23,5 @@
 //= require parallax
 //= require owl.carousel
 //= require main.js
+//= require websocket_rails/main
+

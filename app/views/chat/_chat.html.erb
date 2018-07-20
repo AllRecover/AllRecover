@@ -209,7 +209,19 @@ body {
    <div class="top_menu">
       <div class="title">병원 이야기</div>
    </div>
-   <ul class="messages"></ul>
+   <ul class="messages">
+    <% @chats.each do |c|%>
+    <% if c.msg.nil?%>
+    <% else%>
+     <li class="message right appeared">
+        <div class="avatar">나</div>
+        <div class="text_wrapper">
+           <div class="text"><%=c.msg%></div>
+        </div>
+     </li>
+     <%end%>
+    <%end%>
+   </ul>
    <div class="bottom_wrapper clearfix">
       <div class="message_input_wrapper"><input class="message_input" placeholder="Type your message here..." /></div>
       <div class="send_message">
@@ -233,7 +245,20 @@ body {
 
 
 <script>
+(function poll(){
+    var diff = $(".messages li").length
+    //alert(diff)
+    $.ajax({
+        url:'/chat/reset',
+        data: {diff: diff},
+        complete: poll,// poll() 재귀호출
+        dataType:'script',
+        timeout: 10000
+    });
+})();
 (function () {
+
+
   var Message;
   Message = function (arg) {
       this.text = arg.text, this.message_side = arg.message_side;
@@ -241,6 +266,7 @@ body {
           return function () {
               var $message;
               $message = $($('.message_template').clone().html());
+
               $message.addClass(_this.message_side).find('.text').html(_this.text);
               $('.messages').append($message);
               return setTimeout(function () {
@@ -250,14 +276,20 @@ body {
       }(this);
       return this;
   };
+    var getMessageText, message_side, sendMessage;
   $(function () {
-      var getMessageText, message_side, sendMessage;
+
       message_side = 'right';
       getMessageText = function () {
           var $message_input;
           $message_input = $('.message_input');
           return $message_input.val();
       };
+      // var msg = "<%=@chats%>";
+      // msg = JSON.parse(msg)
+      // alert(msg)
+
+
       sendMessage = function (text) {
           var $messages, message;
           if (text.trim() === '') {
@@ -265,10 +297,8 @@ body {
           }
           $('.message_input').val('');
           $messages = $('.messages');
-
           // message_side = message_side === 'left' ? 'right' : 'left';
           message_side = "right"
-
           message = new Message({
               text: text,
               message_side: message_side
@@ -276,16 +306,24 @@ body {
           message.draw();
           return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
       };
+
       $('.send_message').click(function (e) {
-          return sendMessage(getMessageText());
+          $.ajax({
+             url:'/chat/create',
+             data:  {
+                chat: getMessageText()
+              },
+             dataType:'script',
+             success:function(){},
+             error:function(){alert("fail")}
+           })
+          //return sendMessage(getMessageText());
       });
       $('.message_input').keyup(function (e) {
           if (e.which === 13) {
               return sendMessage(getMessageText());
           }
       });
-      sendMessage('Hello Philip! :)하잉');
-      sendMessage('Hello Philip! :)하잉2');
       // setTimeout(function () {
       //     return sendMessage('Hi Sandy! How are you?');
       // }, 1000);
@@ -293,5 +331,6 @@ body {
       //     return sendMessage('I\'m fine, thank you!');
       // }, 2000);
   });
+
 }.call(this));
 </script>
