@@ -12,82 +12,27 @@
 					<div class="col-md-12">
 						<div class="header-wrap">
 							<div id="logo" class="logo">
-								<a href="index.html" title="">
+								<a href="/" title="">
 										다나아<span style="color: red;"> +</span>
 								</a>
 							</div><!-- /.logo -->
 							<div class="nav-wrap">
 								<nav id="mainnav" class="mainnav">
 									 <ul class="menu">
-									 	<li>
-									 		<a href="#" title="">Explore</a>
-									 		<ul class="submenu">
-									 			<li>
-									 				<a href="explore-v1.html" title="">Explore Map Zoom In</a>
-									 			</li>
-									 			<li>
-									 				<a href="explore-v2.html" title="">Explore Map Zoom Out</a>
-									 			</li>
-									 			<li>
-									 				<a href="explore-v3.html" title="">Explore Map List</a>
-									 			</li>
-									 			<li>
-									 				<a href="explore-v4.html" title="">Explore Grid</a>
-									 			</li>
-									 			<li>
-									 				<a href="explore-v5.html" title="">Explore List</a>
-									 			</li>
-									 			<li>
-									 				<a href="explore-detail.html" title="">Explore Details</a>
-									 			</li>
-									 		</ul>
-									 	</li>
-									 	<li>
-									 		<a href="#" title="">Learn</a>
-									 		<ul class="submenu">
-									 			<li>
-									 				<a href="index.html" title="">Index Layout</a>
-									 			</li>
-									 			<li>
-									 				<a href="404.html" title="">404 Page</a>
-									 			</li>
-									 			<li>
-									 				<a href="addlisting.html" title="">Add Listings</a>
-									 			</li>
-									 			<li>
-									 				<a href="comingsoon.html" title="">Comming Soon</a>
-									 			</li>
-									 			<li>
-									 				<a href="contact.html" title="">Contact</a>
-									 			</li>
-									 			<li>
-									 				<a href="price.html" title="">Price Page</a>
-									 			</li>
-									 			<li>
-									 				<a href="work.html" title="">How It Works</a>
-									 			</li>
-									 		</ul>
-									 	</li>
-									 	<li>
-									 		<a href="blog.html" title="">Blog</a>
-									 		<ul class="submenu">
-									 			<li>
-									 				<a href="blog.html" title="">Blog</a>
-									 			</li>
-									 			<li>
-									 				<a href="blog-single.html" title="">Blog Single</a>
-									 			</li>
-									 		</ul>
-									 	</li>
+
                     <% if user_signed_in? %>
 										 <li>
 										  <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
 											</li>
 											<li>
 												<%= link_to edit_user_registration_path do %>
-											     <%= image_tag current_user.profile_img, class: 'img-circular' %>
-											 <% end %>
-											  <span><%= current_user.email %></span>
+													<% unless current_user.profile_img.nil? %>
+												 		<%= image_tag current_user.profile_img, class: "img-circular" %>
+												 	<% else %>
+												 		<%= image_tag 'user/profile.png', class: "img-circular" %>
+												 	<% end %>
+											 	<% end %>
+											  <span><%= current_user.name %>님</span>
 											</li>
 										<% else %>
 											<li>

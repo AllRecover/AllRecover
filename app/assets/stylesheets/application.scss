@@ -15,7 +15,6 @@
 @import 'bootstrap.min';
 @import 'responsive';
 @import 'style';
-
 .department {
   font-size: 18px;
   font-weight: 400;
@@ -33,4 +32,7 @@
  border-radius: 30px;
  -webkit-border-radius: 30px;
  -moz-border-radius: 30px;
+}
+.header .container-fluid{
+    padding-top: 10px;
 }

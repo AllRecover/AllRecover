@@ -9,14 +9,20 @@
 					<div class="col-lg-4 col-sm-6">
 						<div class="login-form">
 							<h3>다나아 회원 선호도 변경</h3>
-
-
 							<%= simple_form_for @preference, url: users_preference_path do |f|%>
 								<%= f.input :dist %>
+								<div id="slider_dist"></div>
 								<%= f.input :price %>
+								<div id="slider_price"></div>
 								<%= f.input :grade %>
+								<div id="slider_grade"></div>
 							<%end%>
+
+
+
+
 						</div><!-- /.login-form style2 -->
+
 					</div><!-- /.col-lg-4 col-sm-6 -->
 					<div class="col-lg-5 col-sm-6">
             <div class="login-social">
@@ -40,4 +46,42 @@
 			</div><!-- /.container -->
 			<div class="overlay"></div>
 		</section><!-- /.flat-login style2 -->
+
 		<script>
+	
+		  $( function() {
+		    $( '#slider_dist' ).slider({
+					min: 1,
+					max: 10
+				});
+		  });
+			$(document).ready(function(){
+				$('#slider_dist').change(function(e) {
+					$("#preference_dist").attr('value', $("#slider_dist").val());
+				});
+			});
+
+			$( function() {
+		    $( '#slider_price' ).slider({
+					min: 1,
+					max: 10
+				});
+		  });
+			$(document).ready(function(){
+				$('#slider_price').change(function(e) {
+					$("#preference_price").attr('value', $("#slider_price").val());
+				});
+			});
+
+			$( function() {
+		    $( '#slider_grade' ).slider({
+					min: 1,
+					max: 10
+				});
+		  });
+			$(document).ready(function(){
+				$('#slider_grade').change(function(e) {
+					$("#preference_grade").attr('value', $("#slider_grade").val());
+				});
+			});
+	  </script>

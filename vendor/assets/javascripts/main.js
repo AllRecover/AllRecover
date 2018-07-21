@@ -192,7 +192,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 14
                     },
                     navigationControl: true,
@@ -216,7 +216,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 14,
                         animation: google.maps.Animation.BOUNCE
                     },
@@ -232,7 +232,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 13
                     }
                 }
@@ -244,7 +244,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 14
                     }
                 }
@@ -283,7 +283,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "Themesflat Map"
+                            name: "지도"
                         },
                         styles:[
                             {
@@ -414,7 +414,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "Themesflat Map"
+                            name: "지도"
                         },
                         styles:[
                             {
@@ -563,7 +563,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "Themesflat Map"
+                            name: "지도"
                         },
                         styles:[
                             {
@@ -703,7 +703,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "Themesflat Map"
+                            name: "지도"
                         },
                         styles:[
                             {
@@ -856,7 +856,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "Themesflat Map"
+                            name: "지도"
                         },
                         styles:[
                             {

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hospital_id: 
+  user_id: 
+  star: MyString
+  comment: MyString
+
+two:
+  hospital_id: 
+  user_id: 
+  star: MyString
+  comment: MyString
