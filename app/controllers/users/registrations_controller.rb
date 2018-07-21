@@ -1,6 +1,27 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+
+  def info
+    if request.patch? && params[:user]
+      if current_user.update(params.require(:user).permit(:email))
+        sign_in(current_user, bypass: true)
+      end
+    end
+  end
+
+  def preference
+    if user_signed_in?
+      @preference =  Preference.find_by_id(current_user.id)
+      p @preference
+      # respond_to do |format|
+      #   format.html
+      # end
+    else
+      redirect_to '/users/sign_in', notice: '먼저 로그인 해주세요'
+    end
+  end
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

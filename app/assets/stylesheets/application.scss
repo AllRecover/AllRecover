@@ -23,6 +23,22 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
-#category1 .container-fluid{
-    padding-top: 30px;
+
+//0721 지훈수정
+//.container-fluid 패딩 준거 전부 지워!
+[name="cate"]{
+  padding-top: 30px;
+}
+.sticky_header {
+  position: fixed;
+  width: 100%;
+}
+//end 0721
+.img-circular{
+ width: 60px;
+ height: 60px;
+ background-size: cover;
+ border-radius: 30px;
+ -webkit-border-radius: 30px;
+ -moz-border-radius: 30px;
 }

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  dist: MyString
+  price: MyString
+  grade: MyString
+
+two:
+  user_id: 
+  dist: MyString
+  price: MyString
+  grade: MyString
