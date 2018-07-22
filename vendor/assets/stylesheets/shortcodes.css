@@ -191,11 +191,12 @@
 	box-shadow: 0px 0px 27px 0px rgba(0, 0, 0, 0.07);
 }
 
+/* 0721 지훈수정 */
 .highlights div.menu-list .col-xs-6 {
 	float: left;
 	text-align: center;
 	width: 16.6666667%;
-	padding: 20px 0px 27px;
+	padding: 15px 0px 15px
 	position: relative;
 }
 

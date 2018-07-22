@@ -1,0 +1,62 @@
+<div class="comment-area">
+  <h3 class="comment-title"><%=@reviews.length%>개의 이용후기</h3>
+  <ol class="comment-list">
+
+  <% @reviews.each do |c|%>
+    <li class="comment">
+      <article class="comment-body">
+        <div class="comment-image">
+          <img src="images/blog/comment_01.png" alt="">
+        </div><!-- /.comment-image -->
+        <div class="comment-content">
+          <div class="comment-metadata">
+            <%= c.updated_at %>
+          </div>
+          <h5>
+            <%= c.title %>
+            <span>
+              <% 5.times do |i|%>
+                <%if c.star.to_i<=i%>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                <%else%>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                <%end%>
+              <%end%>
+              <!-- <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star-half-o" aria-hidden="true"></i> -->
+            </span>
+          </h5>
+          <div class="comment-author">
+            by <a href="#" title=""><%=c.user_id%></a>
+          </div>
+          <p>
+            <%= c.comment %>
+          </p>
+          <div class="comment-like">
+            <ul>
+              <li>
+                <a href="#" title=""><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><%= c.like %></a>
+              </li>
+              <li>
+                <a href="#" title=""><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 0</a>
+              </li>
+            </ul>
+            <div class="comment-reply">
+              <a href="#" title="">Reply</a>
+            </div>
+          </div><!-- /.comment-like -->
+        </div><!-- /.comment-content -->
+      </article><!-- /.comment-body -->
+    </li><!-- /.comment -->
+<%end%>
+  </ol><!-- /.comment-list -->
+  <div class="load-more">
+    <a href="" title="">더보기</a>
+  </div>
+<script>
+
+
+</script>

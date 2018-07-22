@@ -143,21 +143,21 @@
             });
         }; // Slide Team
 
-        var searchButton = function() {
-            var showsearch = $('.show-search button');
-                showsearch.on('click',function() {
-                $('.show-search .top-search').toggleClass('active');
-                showsearch.toggleClass('active');
-                if(showsearch.hasClass('active')) {
-                    $(this).children('span').removeClass('ti-search');
-                    showsearch.children('span').addClass('ti-close');
-                } else {
-                    showsearch.removeClass('active');
-                    $(this).children('span').addClass('ti-search');
-                    $(this).children('span').removeClass('ti-close');
-                }
-            });
-        }; // Search Button
+        // var searchButton = function() {
+        //     var showsearch = $('.show-search button');
+        //         showsearch.on('click',function() {
+        //         $('.show-search .top-search').toggleClass('active');
+        //         showsearch.toggleClass('active');
+        //         if(showsearch.hasClass('active')) {
+        //             $(this).children('span').removeClass('ti-search');
+        //             showsearch.children('span').addClass('ti-close');
+        //         } else {
+        //             showsearch.removeClass('active');
+        //             $(this).children('span').addClass('ti-search');
+        //             $(this).children('span').removeClass('ti-close');
+        //         }
+        //     });
+        // }; // Search Button
 
         var CountDown = function() {
             var before = '<div class="square"><div class="numb">',
@@ -1115,7 +1115,7 @@
         responsiveMenu();
         headerFixed();
         slideTeam();
-        searchButton();
+        // searchButton();
         filterToggle();
         CountDown();
         googleMap();

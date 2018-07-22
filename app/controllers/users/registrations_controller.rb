@@ -20,6 +20,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def preference_update
+    respond_to do |format|
+      if @preference.update(post_params)
+        format.html {redirect_to @post, notice: '선호도가 수정되었습니다!'}
+      else
+        format.html { render :preference }
+        format.json { render json: @post.error }
+      end
+    end
+  end
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

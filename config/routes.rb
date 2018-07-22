@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'detail/index'
+  #detail
+  get 'detail/index/:hos_id' => 'detail#index'
+  post 'detail/create'
 
   devise_for :users, controllers: {
       sessions: 'users/sessions',
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
     match 'users/info' => 'users/registrations#info', via: [:get, :patch] # 하나의 액션에서 get, patch 처리
 
     get "users/preference" => 'users/registrations#preference'
+    post "users/preference_updata" => 'users/registrations#preference_update'
   end
 
 

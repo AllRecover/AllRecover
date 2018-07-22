@@ -9,16 +9,18 @@
 					<div class="col-lg-4 col-sm-6">
 						<div class="login-form">
 							<h3>다나아 회원 선호도 변경</h3>
-							<%= simple_form_for @preference, url: users_preference_path do |f|%>
+							<%= simple_form_for @preference, url: users_preference_updata_path do |f|%>
 								<%= f.input :dist %>
 								<div id="slider_dist"></div>
 								<%= f.input :price %>
 								<div id="slider_price"></div>
 								<%= f.input :grade %>
 								<div id="slider_grade"></div>
+
+								<div class="btn-more">
+                  <%= f.button :submit,"선호도 수정하기" %><br />
+								</div>
 							<%end%>
-
-
 
 
 						</div><!-- /.login-form style2 -->
@@ -48,7 +50,7 @@
 		</section><!-- /.flat-login style2 -->
 
 		<script>
-	
+
 		  $( function() {
 		    $( '#slider_dist' ).slider({
 					min: 1,
