@@ -1,7 +1,117 @@
+<style>
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+.range-slider {
+  margin: 60px 0 0 0%;
+}
+
+.range-slider {
+  width: 100%;
+
+}
+
+.range-slider__range {
+  -webkit-appearance: none;
+  width: calc(100% - (73px));
+  height: 10px;
+  border-radius: 5px;
+  background: #d7dcdf;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+.range-slider__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2c3e50;
+  cursor: pointer;
+  transition: background .15s ease-in-out;
+}
+.range-slider__range::-webkit-slider-thumb:hover {
+  background: #1abc9c;
+}
+.range-slider__range:active::-webkit-slider-thumb {
+  background: #1abc9c;
+}
+.range-slider__range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: #2c3e50;
+  cursor: pointer;
+  transition: background .15s ease-in-out;
+}
+.range-slider__range::-moz-range-thumb:hover {
+  background: #1abc9c;
+}
+.range-slider__range:active::-moz-range-thumb {
+  background: #1abc9c;
+}
+.range-slider__range:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #1abc9c;
+}
+
+.range-slider__value {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  color: #fff;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: #2c3e50;
+  padding: 5px 10px;
+  margin-left: 8px;
+}
+.range-slider__value:after {
+  position: absolute;
+  top: 8px;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-right: 7px solid #2c3e50;
+  border-bottom: 7px solid transparent;
+  content: '';
+}
+
+::-moz-range-track {
+  background: #d7dcdf;
+  border: 0;
+}
+
+input::-moz-focus-inner,
+input::-moz-focus-outer {
+  border: 0;
+}
+
+.mypreference{
+   font-size: 20px
+}
+.radarchart{
+   background-color: rgba(255, 0, 0, 0.4);
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
 
 
 
-<section class="flat-row flat-login parallax1">
+
+
+<section class="flat-row flat-explore-detail">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-2">
@@ -11,75 +121,117 @@
 							<h3>다나아 회원 선호도 변경</h3>
 
 							<%= simple_form_for(@preference, as: @preference, url: users_preference_update_path(@preference), html: { method: :put }) do |f| %>
-								<%= f.input :dist %>
-								<div id="slider_dist"></div>
-								<%= f.input :price %>
-								<div id="slider_price"></div>
-								<%= f.input :grade %>
-								<div id="slider_grade"></div>
+							<input name="user_id"  type="hidden" value='<%= current_user.id%>'>
+							<!-- <%#= f.input :dist %> -->
+							<div class="range-slider">
+								 <span class="mypreference">거리</span><span id="mydist" class="range-slider__value"><%= @preference.dist%></span>
+								 <input name="dist" class="range-slider__range" type="range" value='<%= @preference.dist%>' type="range" min="0" max="10">
+							</div>
+							<!-- <%#= f.input :price %> -->
+							<div class="range-slider">
+								 <span class="mypreference">비용</span><span id="myprice" class="range-slider__value"><%= @preference.dist%></span>
+								 <input name="price" class="range-slider__range" type="range" value='<%= @preference.price%>' min="0" max="10">
+							</div>
+							<!-- <%#= f.input :grade %> -->
+							<div class="range-slider">
+								 <span class="mypreference">전문성</span><span id="mygrade" class="range-slider__value"><%= @preference.dist%></span>
 
-								<div class="btn-more">
-                  <%= f.button :submit,"선호도 수정하기" %><br />
-								</div>
+								 <input name="grade" class="range-slider__range" type="range" value='<%= @preference.grade%>' min="0" max="10">
+							</div>
+							<div class="btn-more">
+
+								<a href="#" id="form-submit">선호도 수정하기</a><br />
+
+							</div>
 							<%end%>
 						</div><!-- /.login-form style2 -->
 					</div><!-- /.col-lg-4 col-sm-6 -->
 					<div class="col-lg-5 col-sm-6">
             <div class="login-social">
-              <%= link_to "선호도 변경"%>
-              <hr />
-
-              <p>회원 탈퇴 하시겠습니까?
-              <%= link_to "회원 탈퇴", registration_path(resource_name), data: { confirm: "진짜로요?" }, method: :delete %></p>
-
-              <%= link_to "뒤로가기", :back %>
-							<!-- <a href="#" class="facebook" title=""><span class="ti-facebook"></span>Login with Facebook</a>
-							<p>or</p>
-							<a href="#" class="twitter" title=""><span class="ti-twitter-alt"></span>Login with Twitter</a> -->
+							<div id="radarchart" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+							<div class="clearfix"></div>
 						</div><!-- /.login-social -->
 					</div><!-- /.col-lg-5 col-sm-6 -->
 					<div class="col-lg-1">
 					</div><!-- /.col-lg-1 -->
+					
 				</div><!-- /.row -->
 			</div><!-- /.container -->
 			<div class="overlay"></div>
 		</section><!-- /.flat-login style2 -->
 
+
+
 		<script>
 
-		  $( function() {
-		    $( '#slider_dist' ).slider({
-					min: 1,
-					max: 10
-				});
-		  });
-			$(document).ready(function(){
-				$('#slider_dist').change(function(e) {
-					$("#preference_dist").attr('value', $("#slider_dist").val());
-				});
-			});
 
-			$( function() {
-		    $( '#slider_price' ).slider({
-					min: 1,
-					max: 10
-				});
-		  });
-			$(document).ready(function(){
-				$('#slider_price').change(function(e) {
-					$("#preference_price").attr('value', $("#slider_price").val());
-				});
-			});
+		      // <div class="range-slider">
+		      //    <input class="range-slider__range" type="range" value="0" min="0" max="10">
+		      //    <span id="mydist" class="range-slider__value">0</span>
+		      // </div>
+		      $(document).ready(function(){
 
-			$( function() {
-		    $( '#slider_grade' ).slider({
-					min: 1,
-					max: 10
-				});
-		  });
-			$(document).ready(function(){
-				$('#slider_grade').change(function(e) {
-					$("#preference_grade").attr('value', $("#slider_grade").val());
-				});
-			});
-	  </script>
+		         mychart(parseInt($("#mydist").html()),parseInt($("#myprice").html()),parseInt($("#mygrade").html()));
+		         range.attr("value",$(this).html);
+		      })
+		      $("#form-submit").click(function(e){
+		         //e.preventdefault()
+		         $("form").submit();
+
+		      })
+		      var slider= $('.range-slider'), //div
+		            range = $('.range-slider__range'), //input
+		            value = $('.range-slider__value'); //span
+		      //slider_dist
+		      range.change(function(){
+		         $(this).attr("value",this.value);
+		         $(this).parent(".range-slider").children(".range-slider__value").html(this.value);
+		         mychart(parseInt($("#mydist").html()),parseInt($("#myprice").html()),parseInt($("#mygrade").html()));
+
+		      })
+		function mychart(d,p,g){
+		   Highcharts.chart('radarchart', {
+		      chart: {
+		            polar: true,
+		            type: 'line',
+		            backgroundColor:'transparent'
+		      },
+		      title: {
+		            text: '<%=current_user.name%>님의 선호도',
+		            style: {
+		                   color: "black"
+		             }
+		      },
+		      pane: {
+		            size: '80%'
+		      },
+		      xAxis: {
+		            categories: ['거리', '비용', '전문성'],
+		            tickmarkPlacement: 'on',
+		            lineWidth: 0,
+		            style: {
+		        color: "white",
+		            fill: "white"
+		          }
+		      },
+		      exporting: { enabled: false },
+		      yAxis: {
+		            gridLineInterpolation: 'polygon',
+		            lineWidth: 0,
+		            min: 0
+		      },
+		      tooltip: {
+		            shared: true,
+		            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
+		      },
+		      series: [{
+		            name: '나의 중요도',
+		            data: [d, p, g],
+		            pointPlacement: 'on',
+		            color: 'orange'
+		      }]
+		   });
+		}
+
+
+		</script>

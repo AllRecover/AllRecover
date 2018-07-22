@@ -35,7 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def preference_param
-    params.require(:preference).permit(:price, :grade, :dist)
+    params.permit(:price, :grade, :dist)
   end
 
   # before_action :configure_sign_up_params, only: [:create]
