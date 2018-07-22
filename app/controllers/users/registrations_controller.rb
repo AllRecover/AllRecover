@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :set_preference, only: [:preference, :preference_update]
+
+
 
   def info
     if request.patch? && params[:user]
@@ -21,14 +24,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def preference_update
-    respond_to do |format|
-      if @preference.update(post_params)
-        format.html {redirect_to @post, notice: '선호도가 수정되었습니다!'}
-      else
-        format.html { render :preference }
-        format.json { render json: @post.error }
-      end
-    end
+      @preference.update(preference_param)
+      redirect_to '/', notice: '선호도가 변경되었습니다.'
+  end
+
+
+  private
+  def set_preference
+    @preference = Preference.find(current_user.id)
+  end
+
+  def preference_param
+    params.require(:preference).permit(:price, :grade, :dist)
   end
 
   # before_action :configure_sign_up_params, only: [:create]
