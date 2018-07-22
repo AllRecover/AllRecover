@@ -1356,18 +1356,22 @@ article.post-single .entry-post .entry-header .entry-meta-post li.topic {
 	font-size: 24px;
 }
 
+
+
+
+/* 지훈수정 */
 .comment-respond form .comment-form-email,
 .comment-respond form .comment-form-title {
 	float: left;
-	width: 50%;
+	/* width: 50%; */
 }
-
+/* 지훈수정 */
 .comment-respond form .comment-form-email {
-	padding-right: 15px;
+	/* padding-right: 15px; */
 }
-
+/* 지훈수정 */
 .comment-respond form .comment-form-title {
-	padding-left: 15px;
+	/* padding-left: 15px; */
 }
 
 .comment-respond form div input,

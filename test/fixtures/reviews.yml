@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hos_id: 1
+  user_id: 1
+  title: MyText
+  comment: MyText
+  like: 1
+  star: 1.5
+
+two:
+  hos_id: 1
+  user_id: 1
+  title: MyText
+  comment: MyText
+  like: 1
+  star: 1.5

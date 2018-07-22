@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
       user = User.find_by(email: auth.info.email)
       if user.nil? # User에 email을 쓰고 있는가
         if auth.provider == 'kakao'
-
           user = User.new(
             name: auth.info.name,
             password: Devise.friendly_token[0,20],
@@ -49,7 +48,7 @@ class User < ActiveRecord::Base
 
     user
 
-    
+
   end
 
   def email_required?

@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'faker'
+
+10.times do |i|
+  Review.create(
+
+    hos_id: 1,
+    user_id: 1,
+    title: Faker::OnePiece.quote,
+    comment:Faker::OnePiece.quote,
+    like: 0,
+    star: 0
+  )
+end
