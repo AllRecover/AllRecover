@@ -1,30 +1,30 @@
 
 
   <div class="comment-respond">
-    <h2 class="comment-reply-title">Leave a Review</h2>
+    <h2 class="comment-reply-title">이용 후기</h2>
     <div class="comment-vote">
-      <p>Your Rating for this listing</p>
-      <span class="queue">
+      <span id="wstar" class="queue">
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star-o" aria-hidden="true"></i>
       </span>
-      <span>Goodc !!!</span>
+      <span id="starnum">좋았어요!</span>
     </div>
-    <form action="#" class="comment-form" method="get" accept-charset="utf-8">
-      <div class="comment-form-email">
-        <label for="comment-email">Your Email</label>
-        <input type="email" id="comment-email" name="email">
-      </div>
+
+    <form action="/detail/create" class="comment-form" method="post" accept-charset="utf-8">
+      <input type="hidden" name="star" value="0" />
+      <input type="hidden" name="hos_id" value="<%=@hos_id%>"/>
+      <input type="hidden" name="user_id" value="1"/>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"
       <div class="comment-form-title">
-        <label for="comment-title">Title</label>
-        <input type="text" id="comment-title" name="comment-title">
+        <label for="comment-title">제목</label>
+        <input type="text" id="comment-title" name="title">
       </div>
       <div class="clearfix"></div>
       <div class="comment-form-comment">
-        <label for="comment-comment">Review</label>
+        <label for="comment-comment">내용</label>
         <textarea id="comment-comment" name="comment"></textarea>
         <p>
           Your review recommended to be at least 140 characters long
@@ -34,5 +34,35 @@
         <button type="submit">Submit Your Review</button>
       </div>
     </form><!-- /.comment-form -->
+
   </div><!-- /.comment-respond -->
 </div><!-- /.comment-area -->
+
+<!-- 지훈수정 -->
+<script>
+
+$("#wstar i").click(function(){
+  //reset
+  $(this).parent().children("i").removeClass();
+  $(this).parent().children("i").addClass("fa fa-star-o");
+  //별점 주기~
+  $(this).removeClass("fa-star-o").prevAll("i").removeClass("fa-star-o");
+  $(this).addClass("fa-star").prevAll("i").addClass("fa-star");
+  var len = $(this).addClass("fa-star").prevAll("i").length
+  var text =""
+  if (len ==0){
+    text = "정말 안좋았어요..."
+  }else if (len ==1){
+    text = "안좋았어요..."
+  }else if (len ==2){
+    text = "보통이었어요!"
+  }else if (len ==3){
+    text = "좋았어요!"
+  }else if (len ==4){
+    text = "정말 좋았어요!"
+  }
+  $("#starnum").text(text)
+  $("form input[name='star']").attr("value",len+1)
+})
+
+</script>

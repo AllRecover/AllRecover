@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+#
+gem "faker"
 # 회원관리
 gem 'devise'
 

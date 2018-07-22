@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-
-  get 'detail/index'
+  #detail
+  get 'detail/index/:hos_id' => 'detail#index'
+  post 'detail/create'
 
   devise_for :users, controllers: {
       sessions: 'users/sessions',
@@ -15,8 +16,9 @@ Rails.application.routes.draw do
 
 
   root "temp#index"
-
   get 'temp/index'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
