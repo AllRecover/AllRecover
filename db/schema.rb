@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180722060719) do
+ActiveRecord::Schema.define(version: 20180723020717) do
 
   create_table "hospitals", force: :cascade do |t|
     t.string   "ykiho"
@@ -54,15 +54,18 @@ ActiveRecord::Schema.define(version: 20180722060719) do
   add_index "preferences", ["user_id"], name: "index_preferences_on_user_id"
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "hos_id"
     t.integer  "user_id"
+    t.integer  "hospital_id"
     t.text     "title"
     t.text     "comment"
-    t.integer  "like",       default: 0
-    t.float    "star"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "like",        default: 0
+    t.integer  "star"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
+
+  add_index "reviews", ["hospital_id"], name: "index_reviews_on_hospital_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

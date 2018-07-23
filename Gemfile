@@ -12,7 +12,13 @@ gem 'simple_form'
 gem 'figaro'
 
 gem "faker"
+
+gem 'rest-client'
+gem 'nokogiri'
+
+# gem 'fog-aws'
 gem 'carrierwave'
+gem 'mini_magick'
 
 gem 'pry-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

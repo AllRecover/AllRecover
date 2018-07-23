@@ -41,6 +41,20 @@
         <div class="sidebar">
           <div>
             <!-- <#%= render 'chat/chat'%> -->
+            <div class="box open">
+					    <p><i class="fa fa-clock-o" aria-hidden="true"></i>병원 시간표</p>
+					    <div class="box-desc">
+					       <p>평일</p>
+
+					       <p>월 <%=@timetable["trmtMonStart"] %> - <%=@timetable["trmtMonEnd"]%></p>
+                 <p>화 <%=@timetable["trmtTueStart"] %> - <%=@timetable["trmtTueEnd"]%></p>
+                 <p>수 <%=@timetable["trmtWedStart"] %> - <%=@timetable["trmtWedEnd"]%></p>
+                 <p>목 <%=@timetable["trmtThuStart"] %> - <%=@timetable["trmtThuEnd"]%></p>
+                 <p>금 <%=@timetable["trmtFriStart"] %> - <%=@timetable["trmtFriEnd"]%></p>
+                 <p>휴일</p>
+					       <p>09:00 AM - 05:00 PM<span>Closed Now !</span></p>
+					    </div>
+					  </div>
           </div>
         </div>
       </div><!-- /.col-md-4 -->

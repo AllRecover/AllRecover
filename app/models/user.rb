@@ -1,12 +1,14 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  mount_uploader :profile_img, ImgUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :kakao]
   # User.find_auth
   after_commit :preference_create, on: :create
   has_one :preference
+
 
   def preference_create
     Preference.create(user_id: self.id)
