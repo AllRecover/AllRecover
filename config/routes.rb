@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'detail/index'
+  #detail
+  get 'detail/index/:hospital_id' => 'detail#index'
+  post 'detail/create'
 
   devise_for :users, controllers: {
       sessions: 'users/sessions',

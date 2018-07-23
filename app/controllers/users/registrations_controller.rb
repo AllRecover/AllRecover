@@ -17,7 +17,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def preference
     if user_signed_in?
       @preference =  Preference.find_by_id(current_user.id)
-
     else
       redirect_to '/users/sign_in', notice: '먼저 로그인 해주세요'
     end

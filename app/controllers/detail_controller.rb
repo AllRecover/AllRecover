@@ -1,7 +1,20 @@
+require 'detail_helper'
+
 class DetailController < ApplicationController
+
+    before_action :set_hospital, only: [:index, :create]
+
   def index
-    @hos_id = params[:hos_id]
-    @reviews = Review.where(hos_id: @hos_id).order(id: :desc)
+
+    hospitalInfo = DetailHelper::HospitalInfo.new
+    @timetable = hospitalInfo.timetable(@hospital)
+    p "=============================================="
+    p @timetable
+    p @hospital.class
+    p @timetable["trmtFriStart"]
+    p "=============================================="
+
+    @reviews = Review.where(hospital_id: :hospital_id).order(id: :desc)
   end
 
   def create
@@ -9,7 +22,7 @@ class DetailController < ApplicationController
       # flash 메시지 전달 필요
     else
       review = Review.create(
-        hos_id: params[:hos_id],
+        hospital_id: params[:hospital_id],
         user_id: params[:user_id],
         title: params[:title],
         comment:params[:comment],
@@ -24,5 +37,10 @@ class DetailController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def set_hospital
+    @hospital = Hospital.find(params[:hospital_id])
   end
 end

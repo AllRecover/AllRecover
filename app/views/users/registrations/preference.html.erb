@@ -108,7 +108,18 @@ input::-moz-focus-outer {
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
 
-
+<section class="page-title parallax parallax1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title-heading">
+          다나아 회원 선호도 변경
+        </div>
+      </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+  <div class="overlay"></div>
+</section><!-- /.page-title -->
 
 
 <section class="flat-row flat-explore-detail">
@@ -118,7 +129,6 @@ input::-moz-focus-outer {
 					</div><!-- /.col-lg-2 -->
 					<div class="col-lg-4 col-sm-6">
 						<div class="login-form">
-							<h3>다나아 회원 선호도 변경</h3>
 
 							<%= simple_form_for(@preference, as: @preference, url: users_preference_update_path(@preference), html: { method: :put }) do |f| %>
 							<input name="user_id"  type="hidden" value='<%= current_user.id%>'>
@@ -154,7 +164,7 @@ input::-moz-focus-outer {
 					</div><!-- /.col-lg-5 col-sm-6 -->
 					<div class="col-lg-1">
 					</div><!-- /.col-lg-1 -->
-					
+
 				</div><!-- /.row -->
 			</div><!-- /.container -->
 			<div class="overlay"></div>
