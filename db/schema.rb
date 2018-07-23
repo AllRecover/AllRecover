@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180722031856) do
+ActiveRecord::Schema.define(version: 20180722060719) do
+
+  create_table "hospitals", force: :cascade do |t|
+    t.string   "ykiho"
+    t.integer  "clcd"
+    t.integer  "sidocd"
+    t.integer  "sggucd"
+    t.string   "addr"
+    t.string   "telno"
+    t.string   "hospurl"
+    t.integer  "drtotcnt"
+    t.integer  "gdrcnt"
+    t.integer  "intncnt"
+    t.integer  "resdntcnt"
+    t.integer  "sdrcnt"
+    t.float    "xpos"
+    t.float    "ypos"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"

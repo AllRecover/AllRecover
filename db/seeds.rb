@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
 require 'faker'
 
 10.times do |i|
@@ -17,4 +18,9 @@ require 'faker'
     like: 0,
     star: 0
   )
+end
+
+require 'csv'
+CSV.foreach(Rails.root.join('db', 'hospital.csv'), {headers: true, encoding: "UTF-8"}) do |row|
+  Hospital.create!(row.to_hash)
 end
