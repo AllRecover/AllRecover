@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ykiho: MyString
+  yadmnm: MyString
+  clcd: 1
+  sidocd: 1
+  sggucd: 1
+  addr: MyString
+  telno: MyString
+  hospurl: MyString
+  drtotcnt: 1
+  gdrcnt: 1
+  intncnt: 1
+  resdntcnt: 1
+  sdrcnt: 1
+  xpos: 1.5
+  ypos: 1.5
+
+two:
+  ykiho: MyString
+  yadmnm: MyString
+  clcd: 1
+  sidocd: 1
+  sggucd: 1
+  addr: MyString
+  telno: MyString
+  hospurl: MyString
+  drtotcnt: 1
+  gdrcnt: 1
+  intncnt: 1
+  resdntcnt: 1
+  sdrcnt: 1
+  xpos: 1.5
+  ypos: 1.5

@@ -199,7 +199,7 @@
 	padding: 15px 0px 15px
 	position: relative;
 }
-/* end */
+
 .highlights div.menu-list .col-xs-6:after {
 	content: '';
 	position: absolute;
@@ -403,7 +403,7 @@
 	line-height: 1;
 }
 
-.imagebox. .box-content .box-desc {
+.imagebox .box-content .box-desc {
 	margin: 18px 0 13px;
 }
 

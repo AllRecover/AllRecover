@@ -12,16 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-
-//= require_tree .
-
-//= require jquery.min
 //= require bootstrap.min
-//= require bootstrap-slider.min
 //= require easing
 //= require gmap3.min
 //= require parallax
 //= require owl.carousel
-//= require main
 //= require smoothscroll
-//= snazzy-info-wiondow.min
+//= require main

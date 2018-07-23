@@ -143,18 +143,17 @@
             });
         }; // Slide Team
 
-        // 지훈수정
         // var searchButton = function() {
         //     var showsearch = $('.show-search button');
         //         showsearch.on('click',function() {
         //         $('.show-search .top-search').toggleClass('active');
         //         showsearch.toggleClass('active');
         //         if(showsearch.hasClass('active')) {
-        //             $(this).children('span').removeClass('');
+        //             $(this).children('span').removeClass('ti-search');
         //             showsearch.children('span').addClass('ti-close');
         //         } else {
         //             showsearch.removeClass('active');
-        //             $(this).children('span').addClass('');
+        //             $(this).children('span').addClass('ti-search');
         //             $(this).children('span').removeClass('ti-close');
         //         }
         //     });
@@ -193,7 +192,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 14
                     },
                     navigationControl: true,
@@ -217,7 +216,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 14,
                         animation: google.maps.Animation.BOUNCE
                     },
@@ -233,7 +232,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 13
                     }
                 }
@@ -245,7 +244,7 @@
                         center:[lat, lon],
                         mapTypeId: 'themesflat_style',
                         mapTypeControlOptions: {
-                                mapTypeIds: ['map', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
                         zoom: 14
                     }
                 }
@@ -284,7 +283,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "Themesflat Map"
+                            name: "지도"
                         },
                         styles:[
                             {
@@ -415,7 +414,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "Themesflat Map"
+                            name: "지도"
                         },
                         styles:[
                             {
@@ -564,7 +563,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "Themesflat Map"
+                            name: "지도"
                         },
                         styles:[
                             {
@@ -704,7 +703,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "Themesflat Map"
+                            name: "지도"
                         },
                         styles:[
                             {
@@ -857,7 +856,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "Themesflat Map"
+                            name: "지도"
                         },
                         styles:[
                             {
@@ -1055,7 +1054,7 @@
         }; // Load More S3
 
         var loadMore_s4 = function () {
-            $(".wrap-imagebox.style3 .imagebox.style2").slice(0, 3).show();
+            $(".wrap-imagebox.style3 .imagebox.style2").slice(0, 10).show();
             $(".wrap-imagebox.style3 .btn-more").on('click', function (e) {
                 e.preventDefault();
                 $(".wrap-imagebox.style3 .imagebox.style2:hidden").slice(0, 2).slideDown(600);
@@ -1116,8 +1115,7 @@
         responsiveMenu();
         headerFixed();
         slideTeam();
-        // 지훈수정
-        //searchButton();
+        // searchButton();
         filterToggle();
         CountDown();
         googleMap();

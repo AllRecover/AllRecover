@@ -36,7 +36,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         return users_info_path
       end
     end
-    '/'
+    '/users/preference'
   end
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]

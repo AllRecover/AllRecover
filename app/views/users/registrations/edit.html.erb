@@ -1,73 +1,74 @@
-
-
-
-<section class="flat-row flat-login parallax1">
+		<section class="page-title parallax parallax1">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-2">
-					</div><!-- /.col-lg-2 -->
-					<div class="col-lg-4 col-sm-6">
-						<div class="login-form">
-							<h3>회원 정보 수정</h3>
-              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-              
-                <%= f.error_notification %>
-								<!-- <div class="wrap-login firstname">
-									<label>First name</label>
-									<input type="text" class="first-name" name="firstname">
+					<div class="col-md-12">
+						<div class="page-title-heading">
+							회원 정보 수정
+						</div>
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+			<div class="overlay"></div>
+		</section><!-- /.page-title -->
+
+		<section class="flat-listing">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-listing" }) do |f| %>
+							<div class="inner-box">
+								<p><b><%= current_user.name%>님</b>과 꼭 맞는 선호도를 설정해서 더 정학환 <b>다나아</b>의 추천 서비스를 받아보세요</p>
+								<div class="btn-more">
+									<a href="/users/preference" title="">선호도 변경하러 가기</a>
 								</div>
-								<div class="wrap-login lastname">
-									<label>Last name</label>
-									<input type="text" class="last-name" name="lastname">
-								</div> -->
-								<div class="wrap-login">
-                  <%= f.input :email, required: true, autofocus: true %>
+								<div class="clearfix"></div>
+							</div><!-- /.inner-box -->
+							<div class="inner-box form">
+								<div class="wrap-listing your-email">
+									<label>이메일</label>
+									<%= f.input :email, required: true, autofocus: true %>
 
                   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                     <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
                   <% end %>
-								</div>
-                <hr>
-                <div class="wrap-login">
-                  <%= f.input :current_password, hint: "비밀번호를 바꾸기 위해 현재 비밀번호를 입력해주세요", required: true %>
-                </div>
-								<div class="wrap-login">
-                    <%= f.input :password, autocomplete: "off", hint: "변경을 원하시진 않으면 공백으로 두세요", required: false %>
-								</div>
-                <div class="wrap-login">
-                  <%= f.input :password_confirmation, required: false %>
-								</div>
+								</div><!-- /.wrap-listing -->
+								<div class="wrap-listing your-name">
+									<label>이름</label>
+									<%= f.input :name %>
+								</div><!-- /.wrap-listing -->
+								<div class="clearfix"></div>
 
-                <hr>
-                <div class="wrap-login">
-                  <%= f.input :name %>
-								</div>
-
+							<div class="inner-box form style2">
+								<div class="one-half">
+									<label>비밀번호</label>
+									<%= f.input :current_password, hint: "비밀번호를 바꾸기 위해 현재 비밀번호를 입력해주세요", required: true %>
+									<%= f.input :password, autocomplete: "off", hint: "변경을 원하시진 않으면 공백으로 두세요", required: false %>
+									<%= f.input :password_confirmation, required: false %>
+								</div><!-- /.one-half -->
+								<div class="one-half">
+									<label>프로필 사진</label>
+									<div class="browse">
+										<p>Drag & Drop files here</p>
+										<span>or</span>
+										<div class="upload">
+											<span>Browse files</span>
+											<input type="file" name="upload-file">
+										</div>
+									</div>
+									<div class="clearfix"></div>
+									<button class="submit-form-listing" type="submit">수정하기</button>
+								</div><!-- /.one-half -->
+								<div class="clearfix"></div>
+							</div><!-- /.inner-box -->
+							<div class="inner-box">
+								<p><b>다나아</b>의 의료 추천 서비스를 탈퇴하시겠습니까?</p>
 								<div class="btn-more">
-                  <%= f.button :submit,"수정 하기" %><br />
+									<%= link_to "회원 탈퇴", registration_path(resource_name), data: { confirm: "진짜로요?" }, method: :delete %></p>
 								</div>
-              <% end %>
-						</div><!-- /.login-form style2 -->
-					</div><!-- /.col-lg-4 col-sm-6 -->
-					<div class="col-lg-5 col-sm-6">
-            <div class="login-social">
-
-              <%= link_to "선호도 변경", users_preference_path%>
-
-              <hr />
-
-              <p>회원 탈퇴 하시겠습니까?
-              <%= link_to "회원 탈퇴", registration_path(resource_name), data: { confirm: "진짜로요?" }, method: :delete %></p>
-
-              <%= link_to "뒤로가기", :back %>
-							<!-- <a href="#" class="facebook" title=""><span class="ti-facebook"></span>Login with Facebook</a>
-							<p>or</p>
-							<a href="#" class="twitter" title=""><span class="ti-twitter-alt"></span>Login with Twitter</a> -->
-						</div><!-- /.login-social -->
-					</div><!-- /.col-lg-5 col-sm-6 -->
-					<div class="col-lg-1">
-					</div><!-- /.col-lg-1 -->
+								<div class="clearfix"></div>
+							</div><!-- /.inner-box -->
+						<% end %><!-- /.form-listing -->
+					</div><!-- /.col-md-12 -->
 				</div><!-- /.row -->
 			</div><!-- /.container -->
-			<div class="overlay"></div>
-		</section><!-- /.flat-login style2 -->
+		</section><!-- /.flat-listing -->
