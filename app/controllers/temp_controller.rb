@@ -29,28 +29,52 @@ class TempController < ApplicationController
     end
 
     dist = []
+    asmgrd = []
     @hospital.each do |idx|
-      #p idx
-      dist <<( distance( arr, [idx.ypos.to_f,idx.xpos.to_f]) ).round(1)
+      dist <<( distance( arr, [idx.ypos.to_f,idx.xpos.to_f]) ).round(0)
+      asmgrd11 = Hospeval.find_by(ykiho: idx.ykiho)[:asmgrd11]
+      asmgrd12 = Hospeval.find_by(ykiho: idx.ykiho)[:asmgrd12]
+      asmgrd13 = Hospeval.find_by(ykiho: idx.ykiho)[:asmgrd13]
+      asmgrd_per = [asmgrd11,asmgrd12,asmgrd13]
+      asmgrd << asmgrd_per
     end
 
-    ## default
-    @main_hos = @hospital[0..3]
-    @sub_hos = @hospital[3..@hospital.length]
-    @dist_sub =dist[3..@hospital.length]
-    @dist_main = dist[0..3]
 
-    @result =[]
-    dist.sort.each do |d|
-      idx = dist.index(d)
-      #p @hospital[idx]
-      @result << @hospital[idx]
+    u_dist= current_user.preference.dist
+    u_price=current_user.preference.price
+    u_grade=current_user.preference.grade
+    u_list = [u_dist,u_price,u_grade]
+
+    if u_list.max != u_dist
+      ## default
+      @main_asmgrd = asmgrd[0..3]
+      @sub_asmgrd = asmgrd[3..@hospital.length]
+      @main_hos = @hospital[0..3]
+      @sub_hos = @hospital[3..@hospital.length]
+      @dist_sub =dist[3..@hospital.length]
+      @dist_main = dist[0..3]
+    else
+      @result =[]
+      @result_asmgrd = []
+      dist.sort.each do |d|
+        idx = dist.index(d)
+        #p @hospital[idx]
+        @result << @hospital[idx]
+        @result_asmgrd << asmgrd[idx]
+      end
+      dist =dist.sort
+      @main_asmgrd =   @result_asmgrd[0..3]
+      @sub_asmgrd =   @result_asmgrd[3..@hospital.length]
+      @dist_sub =dist[3..@hospital.length]
+      @dist_main = dist[0..3]
+      @main_hos = @result[0..3]
+      @sub_hos = @result[3..@result.length]
     end
-    dist =dist.sort
-    @dist_sub =dist[3..@hospital.length]
-    @dist_main = dist[0..3]
-    @main_hos = @result[0..3]
-    @sub_hos = @result[3..@result.length]
+
+
+
+
+
     # p "***************************************************"
     # p dist
     # p "***************************************************"

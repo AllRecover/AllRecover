@@ -23,7 +23,7 @@
 require 'csv'
 CSV.foreach(Rails.root.join('db', 'hospital.csv'), {headers: true, encoding: "UTF-8"}).with_index(1) do |row, idx|
   puts idx if idx%500==0
-  Hospital.create!(row.to_hash) if idx<10001
+  Hospital.create!(row.to_hash) if idx<3001
 end
 CSV.foreach(Rails.root.join('db', 'codecl.csv'), {headers: true, encoding: "UTF-8"}) do |row|
   Codecl.create!(row.to_hash)
@@ -37,16 +37,16 @@ end
 CSV.foreach(Rails.root.join('db', 'codesub.csv'), {headers: true, encoding: "UTF-8"}) do |row|
   Codesub.create!(row.to_hash)
 end
-CSV.foreach(Rails.root.join('db', 'disease.csv'), {headers: true, encoding: "UTF-8"}) do |row|
-  Disease.create!(row.to_hash)
+CSV.foreach(Rails.root.join('db', 'disease.csv'), {headers: true, encoding: "UTF-8"}).with_index(1) do |row, idx|
+  Disease.create!(row.to_hash) if idx <3000
 end
 CSV.foreach(Rails.root.join('db', 'hospeval.csv'), {headers: true, encoding: "UTF-8"}).with_index(1) do |row, idx|
   puts idx if idx%500==0
-  Hospeval.create!(row.to_hash) if idx<10001
+  Hospeval.create!(row.to_hash) if idx<3001
 end
 CSV.foreach(Rails.root.join('db', 'hospsbj.csv'), {headers: true, encoding: "UTF-8"}).with_index(1) do |row, idx|
   puts idx if idx%500==0
-  Hospsbj.create!(row.to_hash) if idx<10001
+  Hospsbj.create!(row.to_hash) if idx<3001
 end
 CSV.foreach(Rails.root.join('db', 'noncondition.csv'), {headers: true, encoding: "UTF-8"}) do |row|
   Noncondition.create!(row.to_hash)
