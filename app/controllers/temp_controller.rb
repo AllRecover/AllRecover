@@ -39,7 +39,7 @@ class TempController < ApplicationController
       asmgrd << asmgrd_per
     end
 
-
+ 
     u_dist= current_user.preference.dist
     u_price=current_user.preference.price
     u_grade=current_user.preference.grade
