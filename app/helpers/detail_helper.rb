@@ -86,7 +86,7 @@ module DetailHelper
           unless h['response']['body']['items'].nil?
             return h['response']['body']['items']['item']
           end
-          
+
         end
 
     end

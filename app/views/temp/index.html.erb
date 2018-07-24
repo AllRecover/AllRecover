@@ -69,32 +69,39 @@
 
 
 			$("#main_search").click(function(e){
-				$("#main_rec_card .row").html("")
-				$("#sub_hos").html("")
-			  e.preventDefault();
-			  $.ajax({
-			       url:"temp/search_hospital",
-			       type:'POST',
-			       data:{query: $('input[name="query"]').val(),
-			             authenticity_token: $('[name="csrf-token"]').attr('content'),
-									 location: $('input[name="location"]').val()
-			       },
-			       dataType: 'script',
-			       success: function(){
+				e.preventDefault();
+				var a = $('input[name="location"]').val()
+				if (a == ""){
+					alert("위치를 먼저 지정해 주세요!")
+				}else{
+					$("#main_rec_card .row").html("")
+					$("#sub_hos").html("")
 
-			         $('input[name="query"]').val("");
-			         // $("#main_rec_card").show("slow");
-			         // $("#sub_rec_card").show("slow");
-			         var offset = $("#main_card_offset").offset();
-			         $("html,body").animate({
-			         scrollTop:offset.top
-			         },"slow");
-			       },
-			       error: function(){
-			         alert('검색 실패');
-			        $('input[name="query"]').val("");
-			       }
-			     })
+					$.ajax({
+							 url:"temp/search_hospital",
+							 type:'POST',
+							 data:{query: $('input[name="query"]').val(),
+										 authenticity_token: $('[name="csrf-token"]').attr('content'),
+										 location: $('input[name="location"]').val()
+							 },
+							 dataType: 'script',
+							 success: function(){
+
+								 $('input[name="query"]').val("");
+								 // $("#main_rec_card").show("slow");
+								 // $("#sub_rec_card").show("slow");
+								 var offset = $("#main_card_offset").offset();
+								 $("html,body").animate({
+								 scrollTop:offset.top
+								 },"slow");
+							 },
+							 error: function(){
+								 alert('병원이 존재하지 않습니다.');
+								$('input[name="query"]').val("");
+							 }
+						 })
+				}
+
 			})
 
 
