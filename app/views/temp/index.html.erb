@@ -12,20 +12,23 @@
 		<!-- end drill category -->
 
 		<!-- mainrecommendCard -->
-		<%= render 'temp/mainrecommendCard'%>
+		<%= render 'temp/mainrecommendCard'%>>
 		<!-- end mainrecommendCard -->
 
 		<!-- subrecommendCard -->
-		<%= render 'temp/subrecommendCard'%>
+		<div id="sub_hos">
+
+		</div>
+		<!-- <%= render 'temp/subrecommendCard'%> -->
 		<!-- end subrecommendCard -->
 
 
-
 			<script>
+			alert("<%=@client_location%>")
+
+
 
 			var rootpage=true;
-
-			// 찾기버튼 눌렸을때 이벤트
 			var $new = $('#drillcate');
 			$new.hide('#drillcate');
 
@@ -54,15 +57,45 @@
 				}
 			});
 
-			$("#sub_rec_card").hide();
-			$("#main_rec_card").hide();
-			$("#main_search").click(function(e){
-				e.preventDefault();
-				$("#main_rec_card").show("slow");
-				$("#sub_rec_card").show("slow");
-				var offset = $("#main_rec_card").offset();
-				$("html,body").animate({
-					scrollTop:offset.top
-				},"slow");
+
+
+			//$("#sub_rec_card").hide();
+			$(document).ready(function(){
+				$("#main_rec_card").show();
+				$("#sub_hos").show();
+
 			})
+
+
+
+			$("#main_search").click(function(e){
+				$("#main_rec_card .row").html("")
+				$("#sub_hos").html("")
+			  e.preventDefault();
+			  $.ajax({
+			       url:"temp/search_hospital",
+			       type:'POST',
+			       data:{query: $('input[name="query"]').val(),
+			             authenticity_token: $('[name="csrf-token"]').attr('content')
+			       },
+			       dataType: 'script',
+			       success: function(){
+
+			         $('input[name="query"]').val("");
+			         // $("#main_rec_card").show("slow");
+			         // $("#sub_rec_card").show("slow");
+			         var offset = $("#main_rec_card").offset();
+			         $("html,body").animate({
+			         scrollTop:offset.top
+			         },"slow");
+			       },
+			       error: function(){
+			         alert('검색 실패');
+			        $('input[name="query"]').val("");
+			       }
+			     })
+			})
+
+
+
 			</script>

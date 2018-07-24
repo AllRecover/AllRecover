@@ -1,0 +1,89 @@
+
+<style>
+#myModal {
+    height: 100%;
+  top: 30%;
+  margin-top: -50px;
+}
+/* html, body {
+  height: 100%;
+} */
+</style>
+
+  <!-- Trigger the modal with a button -->
+  <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+  <!-- Modal -->
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+           <div id="map_canvas" style="width:100%; height:100%"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDIFJqZYZdfEPzbcIAQXs8beK_u3XNe6sQ&sensor=false"></script> -->
+  <script type="text/javascript">
+$(document).ready(function(){
+    initialize();
+})
+  var client_location
+
+  var map;
+  function initialize() {
+   // init lat
+  var myLatlng = new google.maps.LatLng(37.20959739504577,126.97947084903717);
+  var myOptions = {
+  zoom: 15,
+  center: myLatlng,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+  //클릭했을 때 이벤트
+  google.maps.event.addListener(map, 'click', function(event) {
+  placeMarker(event.latLng);
+
+  //infowindow.setContent("latLng: " + event.latLng); // 인포윈도우 안에 클릭한 곳위 좌표값을 넣는다.
+  //infowindow.setPosition(event.latLng);             // 인포윈도우의 위치를 클릭한 곳으로 변경한다.
+  map.setZoom(18);
+  //alert(event.latLng)
+  var location_confirm = confirm("현재 지도 위치를 기준으로 찾으시겠습니까??")
+   if (location_confirm) {
+     client_location = event.latLng
+   }
+   else {
+
+   }
+  });
+  //클릭 했을때 이벤트 끝
+
+
+  //인포윈도우의 생성
+   var infowindow = new google.maps.InfoWindow(
+   { content: '추정되는 위치',
+   size: new google.maps.Size(50,50),
+   position: myLatlng
+   });
+   infowindow.open(map);
+  }
+  // function initialize() 함수 끝
+
+  // 마커 생성 합수
+  function placeMarker(location)
+  {
+  var clickedLocation = new google.maps.LatLng(location);
+  var marker = new google.maps.Marker({       position: location,        map: map   });
+  map.setCenter(location);
+  }
+   </script>

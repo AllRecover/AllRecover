@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-
+  #temp
+  root "temp#index"
+  get  'temp/index'
+  post 'temp/search_hospital'
+  get 'temp/map'
+  get 'temp/find_location'
   #detail
   get 'detail/index/:hospital_id' => 'detail#index'
   post 'detail/create'
@@ -15,11 +20,6 @@ Rails.application.routes.draw do
     put "users/preference_update" => 'users/registrations#preference_update'
   end
 
-
-
-  root "temp#index"
-
-  get 'temp/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -9,13 +9,19 @@
           서비스 준비중 입니다.
         </div>
         <div class="wrap-box-search">
-          <form action="#" method="get" accept-charset="utf-8">
+
+          <form id="search_form"accept-charset="utf-8">
             <span>
-              <input type="text" placeholder="병명을 입력해주세요" name="search">
+              <input type="text" placeholder="병명을 입력해주세요" name="query">
             </span>
             <span class="location">
-              <span class="ti-location-pin"></span>
-              <input type="text" placeholder="서울시 역삼 1동" name="location">
+              <span id="setmap" class="ti-location-pin"><a href="/temp/map">go</a></span>
+                <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+              <!-- <% if @client_location.nil?
+                    @client_location=""
+                end
+              %> -->
+              <input type="text" placeholder="<%=@client_location%>" name="location" >
             </span>
             <span class="categories">
               <span class="ti-angle-down"></span>
@@ -38,7 +44,6 @@
             </span>
 
             <button id="main_search" class="search-btn">찾기</button>
-
             <!-- #type="submit" -->
           </form><!-- /form -->
         </div><!-- /.wrap-box-search -->
@@ -47,3 +52,5 @@
   </div><!-- /.container -->
   <div class="overlay"></div>
 </section><!-- /.page-title -->
+<script>
+</script>

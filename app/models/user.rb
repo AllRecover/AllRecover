@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   # User.find_auth
   after_commit :preference_create, on: :create
   has_one :preference
+  has_many :indentities
+
+
 
 
   def preference_create
