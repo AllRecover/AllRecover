@@ -2,32 +2,40 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <div class="text-box">
-          <h3>About this listing</h3>
-          <div class="text-desc">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <i>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla qui officia deserunt mollit anim id est laborum.</i>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-          </div>
-        </div>
+        <!-- <div class="text-box">
+          <h3>진료과목</h3>
+          <div class="box contact-box">
+
+					 </div>
+        </div> -->
         <div class="amenities">
-          <h3>Amenities</h3>
+          <% unless @getFacilityInfo.nil? %>
           <ul class="quater">
-            <li><span class="ti-check-box"></span>Wireless Internet</li>
-            <li><span class="ti-check-box"></span>Street Parking</li>
-            <li><span class="ti-check-box"></span>Kitchen</li>
-            <li><span class="ti-check-box"></span>Bike Parking</li>
+            <h3>시설정보</h3>
+            <li><span class="ti-check-box"></span>응급실 : <%=@getFacilityInfo["emymCnt"]%></li>
+            <li><span class="ti-check-box"></span>수술실 : <%=@getFacilityInfo["soprmCnt"]%></li>
+            <li><span class="ti-check-box"></span>상급 입원실 : <%=@getFacilityInfo["hghrSickbdCnt"]%></li>
+            <li><span class="ti-check-box"></span>일반 입원실 : <%=@getFacilityInfo["stdSickbdCnt"]%></li>
+            <li><span class="ti-check-box"></span>성인/소아 중환자실 : <%=@getFacilityInfo["aduChldSprmCnt"]%></li>
+            <li><span class="ti-check-box"></span>신생아 중환자실 : <%=@getFacilityInfo["nbySprmCnt"]%></li>
+            <li><span class="ti-check-box"></span>물리치료실 : <%=@getFacilityInfo["ptrmCnt"]%></li>
+            <li><span class="ti-check-box"></span>분만실 : <%=@getFacilityInfo["partumCnt"]%></li>
           </ul>
+          <%end%>
+          <% unless @getSpclMdlrtInfoList.nil? %>
           <ul class="quater">
-            <li><span class="ti-check-box"></span>Pets Friendly</li>
-            <li><span class="ti-check-box"></span>Moderate</li>
-            <li><span class="ti-check-box"></span>Smoking Allowed</li>
-            <li><span class="ti-check-box"></span>Good for Kids</li>
+            <h3>특수진료</h3>
+            <% @getSpclMdlrtInfoList.each do |val|%>
+            <li><span class="ti-check-box"></span><%=val["srchCdNm"]%></li>
+            <%end%>
           </ul>
-
+          <%end%>
 
           <ul class="quater">
-            <li><span class="ti-check-box"></span>Most Reviewed</li>
+            <h3>전문병원지정분야</h3>
+            <% @getSpclMdlrtInfoList.each do |val|%>
+            <li><span class="ti-check-box"></span><%=val["srchCdNm"]%></li>
+            <%end%>
           </ul>
           <div class="clearfix"></div>
         </div>
@@ -64,6 +72,17 @@
 					    </div>
 					  </div>
             <% end%>
+            <% unless @getMdlrtSbjectInfoList.nil? %>
+            <div class="box open">
+              <h4>진료과목 : 의사 수</h4>
+                <hr/>
+                 <ul>
+                      <% @getMdlrtSbjectInfoList.each do |val|%>
+                      <li><%= val["dgsbjtCdNm"]%> : <%=val["dgsbjtPrSdrCnt"]%>명</li>
+                      <% end%>
+                 </ul>
+            </div>
+            <%end%>
         </div>
       </div><!-- /.col-md-4 -->
     </div><!-- /.row -->
