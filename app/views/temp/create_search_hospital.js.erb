@@ -1,6 +1,18 @@
+//
+//
+// <section id="main_rec_card" class="flat-row flat-imagebox style3">
+//       <div class="container">
+//          <div class="wrap-imagebox style3">
+//             <div class="row">
+//
+//             </div>
+//          </div>
+//    </section>
+//
 
-var a= `<% @hospital.each do |h|%>
-    <div class="col-sm-12">
+
+var a= `<% @main_hos.each_with_index do |h, index|%>
+    <div id="main_card_offset" class="col-sm-12">
       <div class="imagebox style2">
         <div class="box-imagebox">
           <div class="box-header">
@@ -30,7 +42,7 @@ var a= `<% @hospital.each do |h|%>
               <span class="ti-location-pin"></span><%=h.addr%>
             <ul class="location">
               <li class="address"><%=h.telno%></li>
-              <li class="closed">Closed Now !</li>
+              <li class="closed"><%=@dist_main[index]%>(미터) 이내</li>
             </ul>
             <a href="<%=h.hospurl%>"><%=h.hospurl%></a>
           </div><!-- /.box-content -->
@@ -55,7 +67,7 @@ var a= `<% @hospital.each do |h|%>
               <div class="height50"></div>
            <%end%>
            <div class="row">
-              <% @sub_hos[s..(e-1)].each do |h|%>
+              <% @sub_hos[s..(e-1)].each_with_index do |h, index|%>
               <div class="col-md-4">
                <div class="imagebox style1">
                   <div class="box-imagebox">
@@ -82,7 +94,7 @@ var a= `<% @hospital.each do |h|%>
                         <ul class="rating">
                            <li><%=h.telno%></li><br />
                            <li>AM 09:00 - PM 06:00</li><br />
-                           <li>강남점</li><br />
+                           <li><%=@dist_sub[index]%>M 이내</li><br />
                         </ul>
                         <div class="box-desc">
                            <span class="ti-location-pin"></span><%=h.addr%>
@@ -93,7 +105,7 @@ var a= `<% @hospital.each do |h|%>
                      </div><!-- /.box-content -->
                      <ul class="location">
                         <li class="address"><a href="<%=h.hospurl%>"><%=h.hospurl%></a></li>
-                        <li class="open">Open Now !</li>
+                        <li class="open"><%=@dist_sub[index]%>(미터) 이내</li>
                      </ul><!-- /.location -->
                   </div><!-- /.box-imagebox -->
 

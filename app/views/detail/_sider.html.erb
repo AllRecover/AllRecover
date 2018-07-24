@@ -40,25 +40,36 @@
         <div class="sidebar">
 
             <!-- <#%= render 'chat/chat'%> -->
+            <% unless @timetable.nil? %>
             <div class="box open">
-					    <p><i class="fa fa-clock-o" aria-hidden="true"></i>병원 시간표</p>
+					    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 병원 시간표</h4>
 					    <div class="box-desc">
-					       <p>평일</p>
+					       <h4><b>평일</b></h4>
 
-					       <p>월 <%=@timetable["trmtMonStart"] %> - <%=@timetable["trmtMonEnd"]%></p>
-                 <p>화 <%=@timetable["trmtTueStart"] %> - <%=@timetable["trmtTueEnd"]%></p>
-                 <p>수 <%=@timetable["trmtWedStart"] %> - <%=@timetable["trmtWedEnd"]%></p>
-                 <p>목 <%=@timetable["trmtThuStart"] %> - <%=@timetable["trmtThuEnd"]%></p>
-                 <p>금 <%=@timetable["trmtFriStart"] %> - <%=@timetable["trmtFriEnd"]%></p>
-                 <p>휴일</p>
-					       <p>09:00 AM - 05:00 PM<span>Closed Now !</span></p>
+					       <p><b>월</b>    <%=@timetable["trmtMonStart"] %> - <%=@timetable["trmtMonEnd"]%></p>
+                 <p><b>화</b>    <%=@timetable["trmtTueStart"] %> - <%=@timetable["trmtTueEnd"]%></p>
+                 <p><b>목</b>    <%=@timetable["trmtThuStart"] %> - <%=@timetable["trmtThuEnd"]%></p>
+                 <p><b>수</b>    <%=@timetable["trmtWedStart"] %> - <%=@timetable["trmtWedEnd"]%></p>
+                 <p><b>금</b>    <%=@timetable["trmtFriStart"] %> - <%=@timetable["trmtFriEnd"]%></p>
+                 <p><b>점심시간</b> <%=@timetable["lunchWeek"]%></p>
+                 <% unless @timetable["trmtSatStart"].nil?%>
+                   <hr/>
+                     <h4><b>휴일</b></h4>
+    					       <p><b>토</b>    <%=@timetable["trmtSatStart"] %> - <%=@timetable["trmtSatEnd"]%><span>휴일 진료 !</span></p>
+                     <% unless @timetable["lunchSat"].nil?%>
+                     <p><b>점심시간</b> <%=@timetable["lunchSat"]%></p>
+                     <%end%>
+                   <%end%>
+
 					    </div>
 					  </div>
+            <% end%>
         </div>
       </div><!-- /.col-md-4 -->
     </div><!-- /.row -->
   </div><!-- /.container -->
 </section><!-- /.flat-explore-detail <-->
+
 
 
 <section class="flat-row flat-explore-detail">

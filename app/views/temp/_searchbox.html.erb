@@ -1,3 +1,4 @@
+
 <section class="page-title style2 parallax parallax1">
   <div class="container">
     <div class="row">
@@ -12,16 +13,24 @@
 
           <form id="search_form"accept-charset="utf-8">
             <span>
-              <input type="text" placeholder="병명을 입력해주세요" name="query">
+              <input type="text" placeholder="병원명을 입력해주세요" name="query">
             </span>
             <span class="location">
-              <span id="setmap" class="ti-location-pin"><a href="/temp/map">go</a></span>
+
+
                 <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
               <!-- <% if @client_location.nil?
                     @client_location=""
                 end
               %> -->
-              <input type="text" placeholder="<%=@client_location%>" name="location" >
+              <a style="color: #4ca1af;" id="get_location" class="btn btn-outline-info">
+                <% if @client_location.length <10%>
+                <span id="location_check">위치 검색 </span><span class="ti-location-pin"></span>
+                <%else%>
+                  <span id="location_check" style="color:red;">위치 재검색 </span><span style="color:red;" class="ti-location-pin"></span>
+                <%end%>
+             </a>
+              <input type="hidden" name="location" value="<%=@client_location%>" >
             </span>
             <span class="categories">
               <span class="ti-angle-down"></span>
@@ -53,4 +62,17 @@
   <div class="overlay"></div>
 </section><!-- /.page-title -->
 <script>
+// $("#get_location").click(function(){
+//   window.location.href=""
+// })
+
+//"<%#=@client_location%>"
+$("#get_location").click(function(e){
+  e.preventDefault();
+  window.location.href="temp/map"
+})
+$('#get_location').on('keypress', function(e) {
+    return e.which !== 13;
+});
+
 </script>

@@ -1,0 +1,180 @@
+[33mcommit b3aad55009ce99d7ff65b6fbdb0ebbc1d5189649[m
+Author: habaak <joohn728@gmail.com>
+Date:   Tue Jul 24 05:11:59 2018 +0000
+
+    MERGE temp and detail
+
+[33mcommit b97c997158b1c13f8716989a33352a30c939ca53[m
+Author: habaak <joohn728@gmail.com>
+Date:   Mon Jul 23 12:29:29 2018 +0000
+
+    ADD data parse and detail view
+
+[33mcommit db1d8ce186c126acf2542eb56264f99c03f05fe4[m
+Author: habaak <joohn728@gmail.com>
+Date:   Mon Jul 23 00:42:40 2018 +0000
+
+    ADD view
+
+[33mcommit cac384cb88a0c723ca74a4ecd315de20df31c8b8[m
+Author: habaak <joohn728@gmail.com>
+Date:   Sun Jul 22 09:08:33 2018 +0000
+
+    MODIFY regester and preference
+
+[33mcommit 3707346b0f80fdf566306f82a22ec8e131ebad5b[m
+Author: habaak <joohn728@gmail.com>
+Date:   Sun Jul 22 05:23:54 2018 +0000
+
+    ADD preference update
+
+[33mcommit bdef09851ce115e4398a0426cbed8ecc24cc96fe[m
+Author: habaak <joohn728@gmail.com>
+Date:   Sun Jul 22 03:52:12 2018 +0000
+
+    Merge view and review
+
+[33mcommit b00b46479a10f8c766820cec59db8f8707cb2008[m
+Author: habaak <joohn728@gmail.com>
+Date:   Sat Jul 21 18:01:20 2018 +0900
+
+    ADD slider
+
+[33mcommit 8235ad6f0376c82b49d58f7821a4910aae129c29[m
+Author: habaak <joohn728@gmail.com>
+Date:   Fri Jul 20 17:44:24 2018 +0900
+
+    MERGE
+
+[33mcommit d75e6df60fb133057988188aa8f0a210c9149e02[m
+Author: habaak <joohn728@gmail.com>
+Date:   Fri Jul 20 10:26:21 2018 +0900
+
+    ADD preference initialize
+
+[33mcommit a3cdde60f8c8db2364dbdd8f42416587c0f32847[m
+Merge: 37bdce2 4dbbeac
+Author: habaak <joohn728@gmail.com>
+Date:   Thu Jul 19 20:52:10 2018 +0900
+
+    ADD preference model and view
+
+[33mcommit 37bdce2283202d37b4711a42ad9cc86606736e77[m
+Author: habaak <joohn728@gmail.com>
+Date:   Thu Jul 19 20:47:15 2018 +0900
+
+    ADD preference
+
+[33mcommit 4dbbeac5e28a8abcc4f2c7736a90fe7c3ae75429[m
+Merge: c7c84de 775fa6d
+Author: Junha Park <joohn728@gmail.com>
+Date:   Thu Jul 19 17:22:08 2018 +0900
+
+    Merge branch 'master' into habaak
+
+[33mcommit c7c84de630b0df29862f03f0c0b7eb8772710d98[m
+Merge: 660a644 249f5ff
+Author: habaak <joohn728@gmail.com>
+Date:   Thu Jul 19 17:13:13 2018 +0900
+
+    merge
+
+[33mcommit 660a644dacba013c2a983d4bebfba3ec334707c6[m
+Author: habaak <joohn728@gmail.com>
+Date:   Thu Jul 19 17:01:07 2018 +0900
+
+    ADD
+
+[33mcommit 249f5ff738cba0b462664243c273b4725878c0e9[m
+Author: habaak <joohn728@gmail.com>
+Date:   Thu Jul 19 15:38:31 2018 +0900
+
+    MERGE master
+
+[33mcommit 874cab2a938c1f85d9bdf36e3a7cbe614e1fb7de[m
+Author: habaak <joohn728@gmail.com>
+Date:   Thu Jul 19 13:16:50 2018 +0900
+
+    ADD map control
+
+[33mcommit 3b1f5bd442d241c219fc27be6731104efd0f630f[m
+Author: habaak <joohn728@gmail.com>
+Date:   Thu Jul 19 11:37:16 2018 +0900
+
+    TEST
+
+[33mcommit 5d66427250a54a9ebca9fa8d292dd5eccddd4d8c[m
+Author: habaak <joohn728@gmail.com>
+Date:   Wed Jul 18 17:27:25 2018 +0900
+
+    UPDATE view & ADD mailer
+
+[33mcommit af53961adf3c3ea8cfd683d261e0ad4407539180[m
+Author: habaak <joohn728@gmail.com>
+Date:   Wed Jul 18 15:02:50 2018 +0900
+
+    add view
+
+[33mcommit 5e90c94292df4fcba2b5282917ccf2297ac5c1e2[m
+Author: habaak <joohn728@gmail.com>
+Date:   Sat Jul 14 15:28:39 2018 +0900
+
+    UPDATE sign up
+
+[33mcommit 48213abb42900f0296ada1cc11e8aef5d5e69399[m
+Author: habaak <joohn728@gmail.com>
+Date:   Sat Jul 14 14:59:06 2018 +0900
+
+    UPDATE Login view page
+
+[33mcommit 775fa6df48636f8c4a6fc204cee7097c3e39ec78[m
+Merge: 93f1aa1 e13e5c8
+Author: habaak <joohn728@gmail.com>
+Date:   Sat Jul 14 12:44:14 2018 +0900
+
+    ADD social login
+
+[33mcommit 93f1aa17453acdf5e437c7c4d82f7fee6b8b3a04[m
+Author: habaak <joohn728@gmail.com>
+Date:   Sat Jul 14 12:38:13 2018 +0900
+
+    index view change & social login
+
+[33mcommit 6cb511849ceaaf07bee0251f18a2a350465acfc0[m
+Author: habaak <joohn728@gmail.com>
+Date:   Fri Jul 13 18:47:44 2018 +0900
+
+    habaak edit index view
+
+[33mcommit c74cac6ccb9b80eed9ff901430967bd8bf00bb26[m
+Author: habaak <joohn728@gmail.com>
+Date:   Fri Jul 13 16:45:14 2018 +0900
+
+    habaak social login
+
+[33mcommit 059a648ee0967c8955da27d55a169ccef5aceb65[m
+Author: habaak <joohn728@gmail.com>
+Date:   Fri Jul 13 09:43:39 2018 +0900
+
+    habaak bundle install auth kakao facebook simple_form
+
+[33mcommit e13e5c8ca56b6ed7329778802232cf4a9ee8e079[m
+Merge: 46d6644 97e4338
+Author: kjihoon <36909859+kjihoon@users.noreply.github.com>
+Date:   Thu Jul 12 16:53:27 2018 +0900
+
+    Merge pull request #1 from AllRecover/dev
+    
+    -712
+
+[33mcommit 97e43386a0601e0d2c0a459b7320232b9cefef63[m
+Author: kjihoon <kjihoon0914@naver.com>
+Date:   Thu Jul 12 16:51:28 2018 +0900
+
+    -712
+
+[33mcommit 46d66446bc16d597f391efdd4894ef2b01a28b9e[m
+Author: kjihoon <kjihoon0914@naver.com>
+Date:   Thu Jul 12 16:31:40 2018 +0900
+
+    Danna first commit

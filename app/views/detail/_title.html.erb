@@ -1,17 +1,26 @@
+<style>
+.badge{
+  background-color: #08c;
+}
+</style>
+
 <section class="flat-title">
   <div class="container">
     <div class="row">
       <div class="col-md-8">
         <div class="title-left">
           <div class="queue">
+            <!-- <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+            <i class="fa fa-star-half-o" aria-hidden="true"></i> -->
+            <span class="badge asmgrd11">항생제처방율 : <%=@hospeval.asmgrd11%>등급</span>
+            <span class="badge asmgrd12">주사제처방율 : <%=@hospeval.asmgrd12%>등급</span>
+            <span class="badge asmgrd13">약품품목수 : <%=@hospeval.asmgrd13%>등급</span>
           </div><!-- /.queue -->
           <div class="box-title">
-            <span>Ad</span><a href="#" title=""><%=@hospital.ykiho%></a><i class="fa fa-check-circle" aria-hidden="true"></i>
+            <span>Ad</span><a href="#" title=""><%=@hospital.yadmnm%></a><i class="fa fa-check-circle" aria-hidden="true"></i>
           </div><!-- /.box-title -->
           <ul class="box-address">
             <% if @hospital.addr %>
@@ -20,7 +29,7 @@
             <% if @hospital.telno %>
             <li class="phone"><i class="fa fa-phone" aria-hidden="true"></i><%=@hospital.telno%></li>
             <% end %>
-            <% if @hospital.hospurl %>
+            <% if @hospital.hospurl!="null" %>
             <li><i class="fa fa-globe" aria-hidden="true"></i><a href="<%=@hospital.hospurl%>" title=""><%=@hospital.hospurl%></a></li>
             <% end %>
           </ul><!-- /.box-address -->
@@ -42,7 +51,7 @@
 
 var googleMap = function() {
     var data = JSON.parse('[{"address":"<%=@hospital.addr%>","content":"","status":"live"}]');
-
+    console.log("123123123123")
     var lat = <%=@hospital.ypos%>;
     var lon = <%=@hospital.xpos%>;
     // Gmap Defaults
@@ -87,7 +96,7 @@ var googleMap = function() {
                                 overlay:{
                                     address:val.address,
                                     options:{
-                                        content:  "<div class='infobox style2'><div class='img-box'></div><div class='text'><h4><%=@hospital.ykiho%></h4><p><%=@hospital.addr%></p></div><div class='clearfix'></div></div>",
+                                        content:  "<div class='infobox style2'><div class='img-box'></div><div class='text'><h4><%=@hospital.yadmnm%></h4><p><%=@hospital.addr%></p></div><div class='clearfix'></div></div>",
                                         offset:{
                                             y:-200,
                                             x:-115
@@ -248,5 +257,5 @@ var googleMap = function() {
         });
     }
 }; // Google Mapc
-
+googleMap();
 </script>
