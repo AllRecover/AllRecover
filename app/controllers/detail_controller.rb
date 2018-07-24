@@ -15,7 +15,7 @@ class DetailController < ApplicationController
     p @top5
     p "=============================================="
 
-    @reviews = Review.where(hospital_id: :hospital_id).order(id: :desc)
+    @reviews = Review.where(hospital_id: @hospital.id).order(id: :desc)
   end
 
   def create

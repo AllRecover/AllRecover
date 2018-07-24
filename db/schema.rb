@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20180723020717) do
 
   create_table "hospitals", force: :cascade do |t|
     t.string   "ykiho"
+    t.string   "yadmnm"
     t.integer  "clcd"
     t.integer  "sidocd"
     t.integer  "sggucd"

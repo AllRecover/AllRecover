@@ -24,7 +24,7 @@
 
 
 			<script>
-			alert("<%=@client_location%>")
+			//alert("<%=@client_location%>")
 
 
 
@@ -76,7 +76,8 @@
 			       url:"temp/search_hospital",
 			       type:'POST',
 			       data:{query: $('input[name="query"]').val(),
-			             authenticity_token: $('[name="csrf-token"]').attr('content')
+			             authenticity_token: $('[name="csrf-token"]').attr('content'),
+									 location: $('input[name="location"]').val()
 			       },
 			       dataType: 'script',
 			       success: function(){
@@ -84,7 +85,7 @@
 			         $('input[name="query"]').val("");
 			         // $("#main_rec_card").show("slow");
 			         // $("#sub_rec_card").show("slow");
-			         var offset = $("#main_rec_card").offset();
+			         var offset = $("#main_card_offset").offset();
 			         $("html,body").animate({
 			         scrollTop:offset.top
 			         },"slow");
@@ -95,6 +96,12 @@
 			       }
 			     })
 			})
+
+
+
+			</script>
+
+			<script>
 
 
 

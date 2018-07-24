@@ -1,6 +1,18 @@
+//
+//
+// <section id="main_rec_card" class="flat-row flat-imagebox style3">
+// 		<div class="container">
+// 			<div class="wrap-imagebox style3">
+// 				<div class="row">
+//
+// 				</div>
+// 			</div>
+// 	</section>
+//
+
 
 var a= `<% @hospital.each do |h|%>
-    <div class="col-sm-12">
+    <div id="main_card_offset" class="col-sm-12">
       <div class="imagebox style2">
         <div class="box-imagebox">
           <div class="box-header">
@@ -30,7 +42,7 @@ var a= `<% @hospital.each do |h|%>
               <span class="ti-location-pin"></span><%=h.addr%>
             <ul class="location">
               <li class="address"><%=h.telno%></li>
-              <li class="closed">Closed Now !</li>
+              <li class="closed">전문 병원 !</li>
             </ul>
             <a href="<%=h.hospurl%>"><%=h.hospurl%></a>
           </div><!-- /.box-content -->

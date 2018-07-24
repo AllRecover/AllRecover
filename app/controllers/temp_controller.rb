@@ -2,6 +2,7 @@ class TempController < ApplicationController
 
   def index
     @client_location = params[:location]
+
     # habaak
   end
   def map
@@ -31,7 +32,9 @@ class TempController < ApplicationController
       end
 
     end
+    def search_disease
 
+    end
 
   end
 end

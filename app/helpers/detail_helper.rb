@@ -16,9 +16,9 @@ module DetailHelper
 
 
            h = Hash.from_xml(name_doc.to_xml)
-           hash = h['response']['body']['items']['item']
-
-           return hash
+           unless h['response']['body']['items'].nil?
+             return h['response']['body']['items']['item']
+           end
         end
 
 
@@ -30,7 +30,6 @@ module DetailHelper
           name_doc = Nokogiri::XML(name_xml)
 
           h = Hash.from_xml(name_doc.to_xml)
-          p h
           unless h['response']['body']['items'].nil?
             return h['response']['body']['items']['item']
           end

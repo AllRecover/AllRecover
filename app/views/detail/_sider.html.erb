@@ -40,6 +40,7 @@
         <div class="sidebar">
 
             <!-- <#%= render 'chat/chat'%> -->
+            <% unless @timetable.nil? %>
             <div class="box open">
 					    <p><i class="fa fa-clock-o" aria-hidden="true"></i>병원 시간표</p>
 					    <div class="box-desc">
@@ -50,10 +51,16 @@
                  <p>수 <%=@timetable["trmtWedStart"] %> - <%=@timetable["trmtWedEnd"]%></p>
                  <p>목 <%=@timetable["trmtThuStart"] %> - <%=@timetable["trmtThuEnd"]%></p>
                  <p>금 <%=@timetable["trmtFriStart"] %> - <%=@timetable["trmtFriEnd"]%></p>
-                 <p>휴일</p>
-					       <p>09:00 AM - 05:00 PM<span>Closed Now !</span></p>
+                 <p>점심시간 <%=@timetable["lunchWeek"]%></p>
+                 <hr/>
+                 <%= if @timetable["trmtSatStart"]? %>
+                   <p>휴일</p>
+  					       <p>토 <%=@timetable["trmtSatStart"] %> - <%=@timetable["trmtSatEnd"]%><span>휴일 진료 !</span></p>
+                   <p>점심시간 <%=@timetable["lunchSat"]%></p>
+                 <% end %>
 					    </div>
 					  </div>
+            <% end%>
         </div>
       </div><!-- /.col-md-4 -->
     </div><!-- /.row -->
