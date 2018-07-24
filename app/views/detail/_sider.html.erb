@@ -2,13 +2,24 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <!-- <div class="text-box">
-          <h3>진료과목</h3>
+        <% unless @top5.nil? %>
+        <div class="text-box">
+          <h3>전문 진료 질환 Top 5</h3>
           <div class="box contact-box">
-
+            <h4>1위 <%=@top5["mfrnIntrsIlnsCdNm1"]%></h4>
+            <h4>2위 <%=@top5["mfrnIntrsIlnsCdNm2"]%></h4>
+            <h4>3위 <%=@top5["mfrnIntrsIlnsCdNm3"]%></h4>
+            <h4>4위 <%=@top5["mfrnIntrsIlnsCdNm4"]%></h4>
+            <h4>5위 <%=@top5["mfrnIntrsIlnsCdNm5"]%></h4>
 					 </div>
-        </div> -->
+        </div>
+        <%end%>
+
+        <div class="clearfix"></div>
+
         <div class="amenities">
+
+
           <% unless @getFacilityInfo.nil? %>
           <ul class="quater">
             <h3>시설정보</h3>
@@ -22,25 +33,58 @@
             <li><span class="ti-check-box"></span>분만실 : <%=@getFacilityInfo["partumCnt"]%></li>
           </ul>
           <%end%>
+
+
           <% unless @getSpclMdlrtInfoList.nil? %>
           <ul class="quater">
             <h3>특수진료</h3>
-            <% @getSpclMdlrtInfoList.each do |val|%>
-            <li><span class="ti-check-box"></span><%=val["srchCdNm"]%></li>
+            <% if @getSpclMdlrtInfoList.kind_of?(Array)%>
+              <% @getSpclMdlrtInfoList.each do |val|%>
+                <li><span class="ti-check-box"></span><%=val["srchCdNm"]%></li>
+              <%end%>
+            <%elsif @getSpclMdlrtInfoList.kind_of?(Hash)%>
+              <li><span class="ti-check-box"></span><%=@getSpclMdlrtInfoList["srchCdNm"]%></li>
             <%end%>
           </ul>
           <%end%>
 
-          <ul class="quater">
-            <h3>전문병원지정분야</h3>
-            <% @getSpclMdlrtInfoList.each do |val|%>
-            <li><span class="ti-check-box"></span><%=val["srchCdNm"]%></li>
-            <%end%>
-          </ul>
+          <% unless @getMedicalEquipmentInfoList.nil? %>
+            <ul class="quater">
+              <h3>의료장비</h3>
+              <% if @getMedicalEquipmentInfoList.kind_of?(Array)%>
+                <% @getMedicalEquipmentInfoList.each do |val|%>
+                  <li><span class="ti-check-box"></span><%=val["oftCdNm"]%> :<%=val["oftCnt"]%>개</li>
+                <%end%>
+              <%elsif @getMedicalEquipmentInfoList.kind_of?(Hash)%>
+                <li><span class="ti-check-box"></span><%=@getMedicalEquipmentInfoList["oftCdNm"]%> :<%=@getMedicalEquipmentInfoList["oftCnt"]%>개</li>
+              <%end%>
+            </ul>
+          <%end%>
           <div class="clearfix"></div>
         </div>
-        <!--지훈수정 comment area 분리  -->
 
+        <% unless @getTransportInfoList.nil? %>
+          <div class="text-box">
+            <h3>교통정보</h3>
+            <div class="box contact-box">
+              <% if @getTransportInfoList.kind_of?(Array)%>
+                  <% @getTransportInfoList.each do |val|%>
+                    <% if val["trafNm"]== "지하철" %>
+                      <h4><%=val["trafNm"]%> <%=val["lineNo"]%> <%=val["arivPlc"]%> <%=val["dist"]%></h4>
+                    <% elsif val["trafNm"]== "시내버스"%>
+                      <h4><%=val["trafNm"]%> <%=val["lineNo"]%> <%=val["arivPlc"]%></h4>
+                    <%end%>
+                  <%end%>
+              <%elsif @getTransportInfoList.kind_of?(Hash)%>
+                <% if @getTransportInfoList["trafNm"]=="지하철" %>
+                  <h4><%=@getTransportInfoList["trafNm"]%> <%=@getTransportInfoList["lineNo"]%> <%=@getTransportInfoList["arivPlc"]%> <%=@getTransportInfoList["dist"]%></h4>
+                <% elsif @getTransportInfoList["trafNm"]=="시내버스"%>
+                  <h4><%=@getTransportInfoList["trafNm"]%> <%=@getTransportInfoList["lineNo"]%> <%=@getTransportInfoList["arivPlc"]%></h4>
+                <%end%>
+              <%end%>
+  					 </div>
+          </div>
+        <%end%>
       </div><!-- /.col-md-8 -->
 
 <!-- slider -->
@@ -73,15 +117,19 @@
 					  </div>
             <% end%>
             <% unless @getMdlrtSbjectInfoList.nil? %>
-            <div class="box open">
-              <h4>진료과목 : 의사 수</h4>
+              <div class="box open">
+                <h4>진료과목 : 의사 수</h4>
                 <hr/>
-                 <ul>
-                      <% @getMdlrtSbjectInfoList.each do |val|%>
-                      <li><%= val["dgsbjtCdNm"]%> : <%=val["dgsbjtPrSdrCnt"]%>명</li>
-                      <% end%>
-                 </ul>
-            </div>
+                   <ul>
+                      <% if @getMdlrtSbjectInfoList.kind_of?(Array)%>
+                          <% @getMdlrtSbjectInfoList.each do |val|%>
+                            <li><%= val["dgsbjtCdNm"]%> : <%=val["dgsbjtPrSdrCnt"]%>명</li>
+                          <%end%>
+                      <%elsif @getMdlrtSbjectInfoList.kind_of?(Hash)%>
+                        <li><%= @getMdlrtSbjectInfoList["dgsbjtCdNm"]%> : <%=@getMdlrtSbjectInfoList["dgsbjtPrSdrCnt"]%>명</li>
+                      <%end%>
+                   </ul>
+              </div>
             <%end%>
         </div>
       </div><!-- /.col-md-4 -->
