@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ykiho: MyString
+  shwsbjtcdnm: MyString
+  mf1: MyString
+  mf2: MyString
+  mf3: MyString
+  mf4: MyString
+  mf5: MyString
+
+two:
+  ykiho: MyString
+  shwsbjtcdnm: MyString
+  mf1: MyString
+  mf2: MyString
+  mf3: MyString
+  mf4: MyString
+  mf5: MyString
