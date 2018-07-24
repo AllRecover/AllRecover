@@ -23,3 +23,14 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: AllRecover
+  username: <%= ENV["RDS_USERNAME"] %>
+  password: <%= ENV["RDS_PASSWORD"] %>
+  host: <%= ENV["RDS_HOSTNAME"] %>
+  port: 3306
+  pool: 5
+  timeout: 5000

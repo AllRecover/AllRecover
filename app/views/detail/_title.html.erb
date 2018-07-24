@@ -20,7 +20,7 @@
             <% if @hospital.telno %>
             <li class="phone"><i class="fa fa-phone" aria-hidden="true"></i><%=@hospital.telno%></li>
             <% end %>
-            <% if @hospital.hospurl %>
+            <% if @hospital.hospurl!="null" %>
             <li><i class="fa fa-globe" aria-hidden="true"></i><a href="<%=@hospital.hospurl%>" title=""><%=@hospital.hospurl%></a></li>
             <% end %>
           </ul><!-- /.box-address -->

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ykiho: MyString
+  asmgrd11: MyString
+  asmgrd12: MyString
+  asmgrd13: MyString
+
+two:
+  ykiho: MyString
+  asmgrd11: MyString
+  asmgrd12: MyString
+  asmgrd13: MyString

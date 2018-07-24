@@ -46,18 +46,20 @@
 					    <div class="box-desc">
 					       <p>평일</p>
 
-					       <p>월 <%=@timetable["trmtMonStart"] %> - <%=@timetable["trmtMonEnd"]%></p>
-                 <p>화 <%=@timetable["trmtTueStart"] %> - <%=@timetable["trmtTueEnd"]%></p>
-                 <p>수 <%=@timetable["trmtWedStart"] %> - <%=@timetable["trmtWedEnd"]%></p>
-                 <p>목 <%=@timetable["trmtThuStart"] %> - <%=@timetable["trmtThuEnd"]%></p>
-                 <p>금 <%=@timetable["trmtFriStart"] %> - <%=@timetable["trmtFriEnd"]%></p>
+					       <p>월    <%=@timetable["trmtMonStart"] %> - <%=@timetable["trmtMonEnd"]%></p>
+                 <p>화    <%=@timetable["trmtTueStart"] %> - <%=@timetable["trmtTueEnd"]%></p>
+                 <p>수    <%=@timetable["trmtWedStart"] %> - <%=@timetable["trmtWedEnd"]%></p>
+                 <p>목    <%=@timetable["trmtThuStart"] %> - <%=@timetable["trmtThuEnd"]%></p>
+                 <p>금    <%=@timetable["trmtFriStart"] %> - <%=@timetable["trmtFriEnd"]%></p>
                  <p>점심시간 <%=@timetable["lunchWeek"]%></p>
-                 <hr/>
-                 <%= if @timetable["trmtSatStart"]? %>
-                   <p>휴일</p>
-  					       <p>토 <%=@timetable["trmtSatStart"] %> - <%=@timetable["trmtSatEnd"]%><span>휴일 진료 !</span></p>
-                   <p>점심시간 <%=@timetable["lunchSat"]%></p>
-                 <% end %>
+                 <% unless @timetable["trmtSatStart"].nil?%>
+                   <hr/>
+                     <p>휴일</p>
+    					       <p>토    <%=@timetable["trmtSatStart"] %> - <%=@timetable["trmtSatEnd"]%><span>휴일 진료 !</span></p>
+                     <% unless @timetable["lunchSat"].nil?%>
+                     <p>점심시간 <%=@timetable["lunchSat"]%></p>
+                     <%end%>
+                   <%end%>
 					    </div>
 					  </div>
             <% end%>

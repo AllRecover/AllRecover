@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mainclass: MyString
+  middleclass: MyString
+  hospname: MyString
+  ykiho: MyString
+  price: 1
+  hostday: 1.5
+
+two:
+  mainclass: MyString
+  middleclass: MyString
+  hospname: MyString
+  ykiho: MyString
+  price: 1
+  hostday: 1.5

@@ -11,7 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180723020717) do
+ActiveRecord::Schema.define(version: 20180724075643) do
+
+  create_table "codecls", force: :cascade do |t|
+    t.integer  "clcd"
+    t.string   "clcdnm"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "codesgs", force: :cascade do |t|
+    t.integer  "sggucd"
+    t.string   "sggucdnm"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "codesis", force: :cascade do |t|
+    t.integer  "sidocd"
+    t.string   "sidocdnm"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "codesubs", force: :cascade do |t|
+    t.string   "dgsbjtcd"
+    t.string   "dgsbjtcdnm"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "diseases", force: :cascade do |t|
+    t.string   "ykiho"
+    t.string   "shwsbjtcdnm"
+    t.string   "mf1"
+    t.string   "mf2"
+    t.string   "mf3"
+    t.string   "mf4"
+    t.string   "mf5"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "hospevals", force: :cascade do |t|
+    t.string   "ykiho"
+    t.string   "asmgrd11"
+    t.string   "asmgrd12"
+    t.string   "asmgrd13"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "hospitals", force: :cascade do |t|
     t.string   "ykiho"
@@ -33,6 +82,48 @@ ActiveRecord::Schema.define(version: 20180723020717) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "hospsbjs", force: :cascade do |t|
+    t.string   "ykiho"
+    t.integer  "dg01"
+    t.integer  "dg02"
+    t.integer  "dg03"
+    t.integer  "dg04"
+    t.integer  "dg05"
+    t.integer  "dg06"
+    t.integer  "dg07"
+    t.integer  "dg08"
+    t.integer  "dg09"
+    t.integer  "dg10"
+    t.integer  "dg11"
+    t.integer  "dg12"
+    t.integer  "dg13"
+    t.integer  "dg14"
+    t.integer  "dg15"
+    t.integer  "dg16"
+    t.integer  "dg17"
+    t.integer  "dg18"
+    t.integer  "dg19"
+    t.integer  "dg20"
+    t.integer  "dg21"
+    t.integer  "dg22"
+    t.integer  "dg23"
+    t.integer  "dg24"
+    t.integer  "dg25"
+    t.integer  "dg26"
+    t.integer  "dg50"
+    t.integer  "dg51"
+    t.integer  "dg52"
+    t.integer  "dg53"
+    t.integer  "dg54"
+    t.integer  "dg55"
+    t.integer  "dg56"
+    t.integer  "dg57"
+    t.integer  "dg58"
+    t.integer  "dg59"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -42,6 +133,17 @@ ActiveRecord::Schema.define(version: 20180723020717) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+  create_table "nonconditions", force: :cascade do |t|
+    t.string   "mainclass"
+    t.string   "middleclass"
+    t.string   "hospname"
+    t.string   "ykiho"
+    t.integer  "price"
+    t.float    "hostday"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "preferences", force: :cascade do |t|
     t.integer  "user_id"

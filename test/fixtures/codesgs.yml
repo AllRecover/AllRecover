@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sggucd: 1
+  sggucdnm: MyString
+
+two:
+  sggucd: 1
+  sggucdnm: MyString

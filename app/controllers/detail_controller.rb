@@ -9,11 +9,7 @@ class DetailController < ApplicationController
     hospitalInfo = DetailHelper::HospitalInfo.new
     @timetable = hospitalInfo.timetable(@hospital)
     @top5 = hospitalInfo.top5(@hospital)
-    p "=============================================="
-    p @timetable
-    p "//"
-    p @top5
-    p "=============================================="
+    
 
     @reviews = Review.where(hospital_id: @hospital.id).order(id: :desc)
   end
