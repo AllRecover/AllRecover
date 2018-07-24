@@ -2,6 +2,7 @@ class CreateHospitals < ActiveRecord::Migration
   def change
     create_table :hospitals do |t|
       t.string :ykiho
+      t.string :yadmnm
       t.integer :clcd
       t.integer :sidocd
       t.integer :sggucd

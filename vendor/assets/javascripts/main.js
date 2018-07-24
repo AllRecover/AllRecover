@@ -1054,7 +1054,7 @@
         }; // Load More S3
 
         var loadMore_s4 = function () {
-            $(".wrap-imagebox.style3 .imagebox.style2").slice(0, 3).show();
+            $(".wrap-imagebox.style3 .imagebox.style2").slice(0, 10).show();
             $(".wrap-imagebox.style3 .btn-more").on('click', function (e) {
                 e.preventDefault();
                 $(".wrap-imagebox.style3 .imagebox.style2:hidden").slice(0, 2).slideDown(600);
@@ -1118,7 +1118,7 @@
         // searchButton();
         filterToggle();
         CountDown();
-        googleMap();
+        // googleMap();
         slideSearch();
         loadMore();
         loadMore_s2();

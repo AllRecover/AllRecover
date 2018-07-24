@@ -1,0 +1,69 @@
+<html>
+<head>
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    html, body {
+      height: 100%;
+    }
+    #map_canvas{
+      width: 100%;
+      height: 80%;
+    }
+  </style>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+ </head>
+ <body onload="initialize()">
+ <div id="map_canvas" ></div>
+ </body>
+ <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDIFJqZYZdfEPzbcIAQXs8beK_u3XNe6sQ&sensor=false"></script>
+ <script type="text/javascript">
+
+ var client_location
+
+ var map;
+ function initialize() {
+  // init map
+ var myLatlng = new google.maps.LatLng(37.20959739504577,126.97947084903717);
+ var myOptions = {
+                   zoom: 15,
+                   center: myLatlng,
+                   mapTypeId: google.maps.MapTypeId.ROADMAP
+                 }
+ map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+
+ //클릭했을 때 이벤트
+ google.maps.event.addListener(map, 'click', function(event) {
+  map.setZoom(18);
+   placeMarker(event.latLng);
+   setTimeout(function(){
+      var location_confirm = confirm("현재 지도 위치를 기준으로 찾으시겠습니까?");
+      if (location_confirm) {
+         client_location = event.latLng
+         window.location.href="/temp/find_location?location="+client_location
+       }else {
+         alert("원하는 위치를 다시 클릭주세요!")
+       }
+   }, 1000);
+ });
+
+ //인포윈도우의 생성
+  var infowindow = new google.maps.InfoWindow(
+  { content: '추정되는 위치',
+  size: new google.maps.Size(50,50),
+  position: myLatlng
+  });
+  infowindow.open(map);
+ }
+ // function initialize() 함수 끝
+
+// 마커 생성 합수
+ function placeMarker(location)
+ {
+ var clickedLocation = new google.maps.LatLng(location);
+ var marker = new google.maps.Marker({       position: location,        map: map   });
+ map.setCenter(location);
+ }
+  </script>
+ </html>\

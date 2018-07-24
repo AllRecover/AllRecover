@@ -32,14 +32,13 @@
           <div class="clearfix"></div>
         </div>
         <!--지훈수정 comment area 분리  -->
-        <%= render 'detail/review'%>
-        <%= render 'detail/writereview'%>
+
       </div><!-- /.col-md-8 -->
 
 <!-- slider -->
       <div class="col-md-4">
         <div class="sidebar">
-          <div>
+
             <!-- <#%= render 'chat/chat'%> -->
             <div class="box open">
 					    <p><i class="fa fa-clock-o" aria-hidden="true"></i>병원 시간표</p>
@@ -55,14 +54,25 @@
 					       <p>09:00 AM - 05:00 PM<span>Closed Now !</span></p>
 					    </div>
 					  </div>
-          </div>
         </div>
       </div><!-- /.col-md-4 -->
     </div><!-- /.row -->
   </div><!-- /.container -->
-
-
-
-
-
 </section><!-- /.flat-explore-detail <-->
+
+
+<section class="flat-row flat-explore-detail">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+            <%= render 'detail/review'%>
+            <%= render 'detail/writereview'%>
+					</div><!-- /.col-md-8 -->
+					<div class="col-md-4">
+						<div class="sidebar">
+
+						</div>
+					</div><!-- /.col-md-4 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-explore-detail <-->
