@@ -10,9 +10,11 @@ class DetailController < ApplicationController
     @timetable = hospitalInfo.timetable(@hospital)
     @top5 = hospitalInfo.top5(@hospital)
     @getMdlrtSbjectInfoList = hospitalInfo.getMdlrtSbjectInfoList(@hospital)
+    @getSpclMdlrtInfoList = hospitalInfo.getSpclMdlrtInfoList(@hospital)
+    @getFacilityInfo = hospitalInfo.getFacilityInfo(@hospital)
     @hospeval = Hospeval.find(@hospital)
     p "================================"
-    p @getMdlrtSbjectInfoList
+    p @getFacilityInfo
     p "================================"
 
     @reviews = Review.where(hospital_id: @hospital.id).order(id: :desc)
