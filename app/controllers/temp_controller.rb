@@ -15,6 +15,8 @@ class TempController < ApplicationController
   end
 
   def search_hospital
+
+
     @hospital = Hospital.where('yadmnm LIKE ?', "%#{params[:query]}%").limit(14)
     latlon = params[:location]
     latlon = latlon[1..(latlon.length-2)]
@@ -25,25 +27,28 @@ class TempController < ApplicationController
       arr[i] =l.to_f
       i=i+1;
     end
-    # p "***************************************************"
-    # p arr
-    # p "***************************************************"
-    @main_hos = @hospital[0..3]
-    @sub_hos = @hospital[3..@hospital.length]
 
     dist = []
     @hospital.each do |idx|
-      dist << distance( arr, [idx.ypos.to_f,idx.xpos.to_f])
+      #p idx
+      dist <<( distance( arr, [idx.ypos.to_f,idx.xpos.to_f]) ).round(1)
     end
-    puts "++++++++++++++++++"
-    puts dist
+
+    ## default
+    @main_hos = @hospital[0..3]
+    @sub_hos = @hospital[3..@hospital.length]
+    @dist_sub =dist[3..@hospital.length]
+    @dist_main = dist[0..3]
 
     @result =[]
     dist.sort.each do |d|
       idx = dist.index(d)
-      p @hospital[idx]
+      #p @hospital[idx]
       @result << @hospital[idx]
     end
+    dist =dist.sort
+    @dist_sub =dist[3..@hospital.length]
+    @dist_main = dist[0..3]
     @main_hos = @result[0..3]
     @sub_hos = @result[3..@result.length]
     # p "***************************************************"
