@@ -1,0 +1,180 @@
+//
+//
+// <section id="main_rec_card" class="flat-row flat-imagebox style3">
+//       <div class="container">
+//          <div class="wrap-imagebox style3">
+//             <div class="row">
+//
+//             </div>
+//          </div>
+//    </section>
+//
+
+
+var a= `<% @main_hos.each_with_index do |h, index|%>
+    <div id="main_card_offset" class="col-sm-12">
+      <div class="imagebox style2">
+        <div class="box-imagebox">
+          <div class="box-header">
+            <div class="box-image">
+              <img class="rec_medal" src="<%= asset_path "icon/medal#{index}.png"%>" alt="">
+              <a href="#" title="">Preview</a>
+            </div>
+          </div><!-- /.box-header -->
+          <div class="box-content">
+            <div class="box-title ad">
+              <!-- 지훈수정 href="detail/index/:id"-->
+              <span>Ad</span><a href="detail/index/<%=h.id%>" title=""><%= h.yadmnm%></a><i class="fa fa-check-circle" aria-hidden="true"></i>
+              <div class="queue">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+              </div>
+            </div>
+            <ul class="rating">
+
+            <li><span class="badge non"><%=@main_non[index].mf1 %></span></li>
+            <li><span class="badge non"><%=@main_non[index].mf2 %></span></li>
+            <li><span class="badge non"><%=@main_non[index].mf3 %></span></li>
+            <li><span class="badge non"><%=@main_non[index].mf4 %></span></li>
+            <li><span class="badge non"><%=@main_non[index].mf5 %></span></li>
+
+            <br/>
+
+              <li><span class="badge asmgrd11">항생제처방율 : <%=@main_asmgrd[index][0] %> 등급</span></li>
+              <li><span class="badge asmgrd12">주사제처방율 : <%=@main_asmgrd[index][1] %> 등급</span></li>
+              <li><span class="badge asmgrd13">약품품목수 : <%=@main_asmgrd[index][2] %> 등급</span></li>
+            </ul>
+            <div class="box-desc">
+              <span class="ti-location-pin"></span><%=h.addr%>
+            <ul class="location">
+              <li class="address"><%=h.telno%></li>
+              <li class="closed"><%=@dist_main[index]%>(미터) 이내</li>
+            </ul>
+            <a href="<%=h.hospurl%>"><%=h.hospurl%></a>
+          </div><!-- /.box-content -->
+        </div><!-- /.box-imagebox -->
+      </div><!-- /.imagebox style2 -->
+    </div><!-- /.col-sm-12 -->
+  <%end%>`
+
+
+  var b =`<section id="sub_rec_card" class="flat-row flat-imagebox style3">
+     <div class="container">
+        <div class="wrap-imagebox style3">
+        <%s = 0%>
+        <%e = s+3%>
+        <%len =(@sub_hos.length / 3)%>
+        <%remain =(@sub_hos.length % 3)%>
+        <% if remain!=0
+        len = len+1
+        end%>
+           <% len.times do |i|%>
+           <%if i!=0%>
+              <div class="height50"></div>
+           <%end%>
+           <div class="row">
+              <% @sub_hos[s..(e-1)].each_with_index do |h, index|%>
+              <div class="col-md-4">
+               <div class="imagebox style1">
+                  <div class="box-imagebox">
+                     <div class="box-content">
+                        <div class="box-title">
+                           <a href="/detail/index/<%=h.id%>" title=""><%=h.yadmnm%></a><i class="fa fa-check-circle" aria-hidden="true"></i>
+                        </div>
+                        <br />
+                        <!-- star -->
+                        <div class="shine_star">
+                           <div class="queue">
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                           </div>
+                        </div>
+                          <!-- badge -->
+                          <span class="badge non"><%=@main_non[index].mf1 %></span>
+                          <span class="badge non"><%=@main_non[index].mf2 %></span>
+                          <span class="badge non"><%=@main_non[index].mf3 %></span>
+                          <span class="badge non"><%=@main_non[index].mf4 %></span>
+                          <span class="badge non"><%=@main_non[index].mf5 %></span>
+                          <br/>
+
+                          <span class="badge badge-expert">항생제처방율 : <%=@sub_asmgrd[index+s][0] %> 등급</span>
+                           <span class="badge badge-recommend">주사제처방율 : <%=@sub_asmgrd[index+s][1] %> 등급</span>
+                          <span class="badge badge-many">약품품목수 : <%=@sub_asmgrd[index+s][2] %> 등급</span>
+
+                        <ul class="rating">
+                           <li><%=h.telno%></li><br />
+                           <li>AM 09:00 - PM 06:00</li><br />
+                           <li><%=@dist_sub[index+s]%>M 이내</li><br />
+                        </ul>
+                        <div class="box-desc">
+                           <span class="ti-location-pin"></span><%=h.addr%>
+                        </div>
+                        <div class="box-desc">
+                             <!-- <img src="<%= asset_path 'icon/a1.png'%>" alt="" style="width: 50%;height: 50%;"> -->
+                       </div>
+                     </div><!-- /.box-content -->
+                     <ul class="location">
+                        <li class="address"><a href="<%=h.hospurl%>"><%=h.hospurl%></a></li>
+                        <li class="open"><%=@dist_sub[index+s]%>(미터) 이내</li>
+                     </ul><!-- /.location -->
+                  </div><!-- /.box-imagebox -->
+
+               </div><!-- /.imagebox style1 -->
+              </div><!-- /.col-md-4 -->
+
+           <%end%>
+           </div><!-- /.row -->
+           <%s = s+3%>
+           <%e = e+3%>
+           <%end%>
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="btn-more">
+                    <a href="#" title="">더보기</a>
+                 </div>
+              </div>  <!--/ btn more-->
+           </div><!-- /.row  -->
+        </div>
+     </div><!-- /.container -->
+  </section><!-- /.flat-imagebox style3 -->
+  <!--서브 레코멘드-->`
+
+//alert("<%=(@sub_hos.length % 3)%>")
+$("#main_rec_card .row").append(a)
+$("#sub_hos").append(b);
+$(".wrap-imagebox.style3 .imagebox.style2:hidden").slice(0, 3).slideDown(600);
+// custom btn more
+var default_sub_len =3;
+var loadMore_s3_custom = function () {
+      //$(".wrap-imagebox.style3 .imagebox.style1").slice(0, 3).show();
+      $(".wrap-imagebox.style3 .imagebox.style1:hidden").slice(0, 3).slideDown(600);
+      $(".btn-more").on('click', function (e) {
+        //alert($(".wrap-imagebox.style3 .imagebox.style1:hidden").length)
+            e.preventDefault();
+            //alert($(".wrap-imagebox.style3 .imagebox.style1:hidden").length)
+
+            //숨겨진 sub card 3개 미만 일때
+            if ($(".wrap-imagebox.style3 .imagebox.style1:hidden").length<3){
+
+               default_sub_len = $(".wrap-imagebox.style3 .imagebox.style1:hidden").length
+            }
+            $(".wrap-imagebox.style3 .imagebox.style1:hidden").slice(0, default_sub_len).slideDown(600);
+
+            //마지막
+            if ($(".wrap-imagebox.style3 .imagebox.style1:hidden").length == 0) {
+                  $(".btn-more").fadeOut("slow");
+            }
+            $('html,body').animate({
+                  scrollTop: $(this).offset().top - 150
+            }, 500);
+      });
+};
+$(function(){
+    loadMore_s3_custom();
+})

@@ -12,9 +12,11 @@ class DetailController < ApplicationController
     @getMdlrtSbjectInfoList = hospitalInfo.getMdlrtSbjectInfoList(@hospital)
     @getSpclMdlrtInfoList = hospitalInfo.getSpclMdlrtInfoList(@hospital)
     @getFacilityInfo = hospitalInfo.getFacilityInfo(@hospital)
+    @getMedicalEquipmentInfoList = hospitalInfo.getMedicalEquipmentInfoList(@hospital)
+    @getTransportInfoList = hospitalInfo.getTransportInfoList(@hospital)
     @hospeval = Hospeval.find(@hospital)
     p "================================"
-    p @getFacilityInfo
+    p @getSpclMdlrtInfoList.class.class
     p "================================"
 
     @reviews = Review.where(hospital_id: @hospital.id).order(id: :desc)
