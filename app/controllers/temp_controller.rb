@@ -46,10 +46,6 @@ class TempController < ApplicationController
       asmgrd_per = [asmgrd11,asmgrd12,asmgrd13]
       asmgrd << asmgrd_per
 
-      #subj =
-    end
-
-
     u_dist= current_user.preference.dist
     u_price=current_user.preference.price
     u_grade=current_user.preference.grade

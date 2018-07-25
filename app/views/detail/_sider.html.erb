@@ -94,11 +94,11 @@
             <!-- <#%= render 'chat/chat'%> -->
             <% unless @timetable.nil? %>
             <div class="box open">
-					    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 병원 시간표</h4>
-					    <div class="box-desc">
-					       <h4><b>평일</b></h4>
+                   <h4><i class="fa fa-clock-o" aria-hidden="true"></i> 병원 시간표</h4>
+                   <div class="box-desc">
+                      <h4><b>평일</b></h4>
 
-					       <p><b>월</b>    <%=@timetable["trmtMonStart"] %> - <%=@timetable["trmtMonEnd"]%></p>
+                      <p><b>월</b>    <%=@timetable["trmtMonStart"] %> - <%=@timetable["trmtMonEnd"]%></p>
                  <p><b>화</b>    <%=@timetable["trmtTueStart"] %> - <%=@timetable["trmtTueEnd"]%></p>
                  <p><b>목</b>    <%=@timetable["trmtThuStart"] %> - <%=@timetable["trmtThuEnd"]%></p>
                  <p><b>수</b>    <%=@timetable["trmtWedStart"] %> - <%=@timetable["trmtWedEnd"]%></p>
@@ -107,14 +107,14 @@
                  <% unless @timetable["trmtSatStart"].nil?%>
                    <hr/>
                      <h4><b>휴일</b></h4>
-    					       <p><b>토</b>    <%=@timetable["trmtSatStart"] %> - <%=@timetable["trmtSatEnd"]%><span>휴일 진료 !</span></p>
+                          <p><b>토</b>    <%=@timetable["trmtSatStart"] %> - <%=@timetable["trmtSatEnd"]%><span>휴일 진료 !</span></p>
                      <% unless @timetable["lunchSat"].nil?%>
                      <p><b>점심시간</b> <%=@timetable["lunchSat"]%></p>
                      <%end%>
                    <%end%>
 
-					    </div>
-					  </div>
+                   </div>
+                 </div>
             <% end%>
             <% unless @getMdlrtSbjectInfoList.nil? %>
               <div class="box open">
@@ -140,17 +140,17 @@
 
 
 <section class="flat-row flat-explore-detail">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-8">
             <%= render 'detail/review'%>
             <%= render 'detail/writereview'%>
-					</div><!-- /.col-md-8 -->
-					<div class="col-md-4">
-						<div class="sidebar">
+               </div><!-- /.col-md-8 -->
+               <div class="col-md-4">
+                  <div class="sidebar">
 
-						</div>
-					</div><!-- /.col-md-4 -->
-				</div><!-- /.row -->
-			</div><!-- /.container -->
-		</section><!-- /.flat-explore-detail <-->
+                  </div>
+               </div><!-- /.col-md-4 -->
+            </div><!-- /.row -->
+         </div><!-- /.container -->
+      </section><!-- /.flat-explore-detail <-->
