@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root "temp#index"
   get  'temp/index'
   post 'temp/search_hospital'
+  post 'temp/search_sbj'
+  post 'temp/search_cate'
   get 'temp/map'
   get 'temp/find_location'
   #detail

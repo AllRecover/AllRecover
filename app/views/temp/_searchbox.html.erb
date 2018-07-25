@@ -1,4 +1,23 @@
+<style>
+#search_button button{
+  margin: 10px;
+  width: 100px;
+}
+.dropdown-submenu {
+    position: relative;
+}
 
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+</style>
+
+<%if @client_location==""
+   @client_location =1
+end%>
 <section class="page-title style2 parallax parallax1">
   <div class="container">
     <div class="row">
@@ -7,23 +26,19 @@
           다나아<span style="color: red;"> +</span>
         </div>
         <div class="text-heading">
-          서비스 준비중 입니다.
+          전국 7만 여개 병원, 100만건 이상의 빅데이터를 활용한 의료 정보 제공 서비스
         </div>
+
         <div class="wrap-box-search">
 
+          <!-- ######################form1 -->
           <form id="search_form"accept-charset="utf-8">
             <span>
               <input type="text" placeholder="병원명을 입력해주세요" name="query">
             </span>
             <span class="location">
+              <a style="color: #4ca1af;" name="get_location" class="btn btn-outline-info">
 
-
-                <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-              <!-- <% if @client_location.nil?
-                    @client_location=""
-                end
-              %> -->
-              <a style="color: #4ca1af;" id="get_location" class="btn btn-outline-info">
                 <% if @client_location.length <10%>
                 <span id="location_check">위치 검색 </span><span class="ti-location-pin"></span>
                 <%else%>
@@ -32,7 +47,7 @@
              </a>
               <input type="hidden" name="location" value="<%=@client_location%>" >
             </span>
-            <span class="categories">
+            <!-- <span class="categories">
               <span class="ti-angle-down"></span>
               <select name="categories">
                 <option value="">카테고리 선택</option>
@@ -50,29 +65,324 @@
                 <option value="">약국</option>
 
               </select>
-            </span>
+            </span> -->
 
             <button id="main_search" class="search-btn">찾기</button>
             <!-- #type="submit" -->
           </form><!-- /form -->
+<!-- ######################end form2 -->
+<!-- ######################form2 -->
+          <form id="search_form2"accept-charset="utf-8">
+            <span style="margin-top: 0px;">
+            <input type="hidden"  name="query">
+            <button id="cate_btn" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span id="surgery_cate">질병 카테고리</span>
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+
+              <li class="dropdown-submenu">
+                <a class="test" tabindex="-1" href="#">비뇨기계과<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a tabindex="-1" href="#">방광/요도의 결석</a></li>
+                  <li><a tabindex="-1" href="#">신장(콩팥)/요관의결석</a></li>
+                    <li><a tabindex="-1" href="#">전립선절세술(암이아닌경우)</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu">
+                <a class="test" tabindex="-1" href="#">소화과<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a tabindex="-1" href="#">담낭명(쓸개염)</a></li>
+                  <li><a tabindex="-1" href="#">담석증</a></li>
+
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu">
+                <a class="test" tabindex="-1" href="#">심장수술<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a tabindex="-1" href="#">경피적관상동맥중재술</a></li>
+                  <li><a tabindex="-1" href="#">관상동맥우회술</a></li>
+
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu">
+                <a class="test" tabindex="-1" href="#">안과<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a tabindex="-1" href="#">녹내장</a></li>
+                  <li><a tabindex="-1" href="#">안검내반증</a></li>
+                  <li><a tabindex="-1" href="#">안와골절</a></li>
+
+                </ul>
+
+                <li class="dropdown-submenu">
+                  <a class="test" tabindex="-1" href="#">암수술 <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">간암</a></li>
+                    <li><a tabindex="-1" href="#">갑상선암</a></li>
+                    <li><a tabindex="-1" href="#">결장암</a></li>
+                    <li><a tabindex="-1" href="#">난소암</a></li>
+                    <li><a tabindex="-1" href="#">방광암</a></li>
+                    <li><a tabindex="-1" href="#">식도암</a></li>
+                    <li><a tabindex="-1" href="#">신장(콩팥)암</a></li>
+                    <li><a tabindex="-1" href="#">위암</a></li>
+                    <li><a tabindex="-1" href="#">유방암</a></li>
+                    <li><a tabindex="-1" href="#">자궁경부암</a></li>
+                    <li><a tabindex="-1" href="#">전립선암</a></li>
+                    <li><a tabindex="-1" href="#">직장암</a></li>
+                    <li><a tabindex="-1" href="#">췌장암</a></li>
+                    <li><a tabindex="-1" href="#">폐암</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a class="test" tabindex="-1" href="#">정형외과 <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">넓적다리골절</a></li>
+                    <li><a tabindex="-1" href="#">무릎관절</a></li>
+                    <li><a tabindex="-1" href="#">무릎반월판연골</a></li>
+                    <li><a tabindex="-1" href="#">무릎십자인대</a></li>
+                    <li><a tabindex="-1" href="#">손/손목골절</a></li>
+                    <li><a tabindex="-1" href="#">손목터널증후군</a></li>
+                    <li><a tabindex="-1" href="#">아래다리골절</a></li>
+                    <li><a tabindex="-1" href="#">아래팔골절</a></li>
+                    <li><a tabindex="-1" href="#">어깨골절</a></li>
+                    <li><a tabindex="-1" href="#">엉덩이관절</a></li>
+                    <li><a tabindex="-1" href="#">회전근개파열복원술</a></li>
+
+                  </ul>
+                </li>
+
+                <li class="dropdown-submenu">
+                  <a class="test" tabindex="-1" href="#">심장수술 <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">경피적관상동맥중재술</a></li>
+                    <li><a tabindex="-1" href="#">관상동맥우회술</a></li>
+
+                  </ul>
+                </li>
+              </li>
+            </ul>
+            </span>
+            <span class="location">
+              <a style="color: #4ca1af;" name="get_location" class="btn btn-outline-info">
+                <% if @client_location.length <10%>
+                <span id="location_check">위치 검색 </span><span class="ti-location-pin"></span>
+                <%else%>
+                  <span id="location_check" style="color:red;">위치 재검색 </span><span style="color:red;" class="ti-location-pin"></span>
+                <%end%>
+             </a>
+              <input type="hidden" name="location" value="<%=@client_location%>" >
+            </span>
+
+
+            <button id="main_search2" class="search-btn">찾기</button>
+            <!-- #type="submit" -->
+          </form><!-- /form -->
+<!-- ######################end form2 -->
+
+
+
+
+  <!-- ######################form3 -->
+  <form id="search_form3"accept-charset="utf-8">
+    <span>
+      <input type="hidden" name="query">
+        <button id="cate_btn2" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span id="surgery_cate2">질병 카테고리</span>
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a tabindex="-1" href="#">가정의학과</a></li>
+        <li><a tabindex="-1" href="#">내과</a></li>
+        <li><a tabindex="-1" href="#">마취통증의학과</a></li>
+        <li><a tabindex="-1" href="#">비뇨기과</a></li>
+        <li><a tabindex="-1" href="#">산부인과</a></li>
+        <li><a tabindex="-1" href="#">성형외과</a></li>
+        <li><a tabindex="-1" href="#">소아청소년과</a></li>
+        <li><a tabindex="-1" href="#">신경과</a></li>
+        <li><a tabindex="-1" href="#">신경외과</a></li>
+        <li><a tabindex="-1" href="#">안과</a></li>
+        <li><a tabindex="-1" href="#">외과</a></li>
+        <li><a tabindex="-1" href="#">이비인후과</a></li>
+        <li><a tabindex="-1" href="#">일반의</a></li>
+        <li><a tabindex="-1" href="#">재활의학과</a></li>
+        <li><a tabindex="-1" href="#">정신건강의학과</a></li>
+        <li><a tabindex="-1" href="#">정형외과</a></li>
+        <li><a tabindex="-1" href="#">피부과</a></li>
+        <li><a tabindex="-1" href="#">흉부외과</a></li>
+      </ul>
+
+      <!-- <span class="categories">
+        <span class="ti-angle-down"></span>
+        <select name="categories">
+          <option value="">카테고리 선택</option>
+          <option value="">소아과</option>
+          <option value="">산부인과</option>
+          <option value="">내과</option>
+          <option value="">외과</option>
+          <option value="">피부과</option>
+          <option value="">성형외과</option>
+          <option value="">정형외과</option>
+          <option value="">한의원</option>
+          <option value="">안과</option>
+          <option value="">이비인후과</option>
+          <option value="">치과</option>
+          <option value="">약국</option>
+
+        </select>
+      </span> -->
+    </span>
+    <span class="location">
+      <a style="color: #4ca1af;" name="get_location" class="btn btn-outline-info">
+
+        <% if @client_location.length <10%>
+        <span id="location_check">위치 검색 </span><span class="ti-location-pin"></span>
+        <%else%>
+          <span id="location_check" style="color:red;">위치 재검색 </span><span style="color:red;" class="ti-location-pin"></span>
+        <%end%>
+     </a>
+      <input type="hidden" name="location" value="<%=@client_location%>" >
+    </span>
+
+
+    <button id="main_search3" class="search-btn">찾기</button>
+    <!-- #type="submit" -->
+  </form><!-- /form -->
+<!-- ######################end form3 -->
+
+
+
+
         </div><!-- /.wrap-box-search -->
+
+        <div id="search_button" class="btn-group" role="group" aria-label="Basic example">
+          <button id="form1" type="button" class="btn btn-secondary">병원</button>
+          <button id="form2" type="button" class="btn btn-secondary">비급여 항목</button>
+          <button id="form3" type="button" class="btn btn-secondary">과별검색</button>
+        </div>
+
       </div><!-- /.col-md-12 -->
     </div><!-- /.row -->
   </div><!-- /.container -->
   <div class="overlay"></div>
 </section><!-- /.page-title -->
 <script>
-// $("#get_location").click(function(){
-//   window.location.href=""
-// })
+$("#search_form2 li a").click(function(){
+  $("#surgery_cate").text($(this).text())
+  $("#search_form2 input[name='query']").attr("value",$(this).text())
+})
+$("#search_form3 li a").click(function(){
+  $("#surgery_cate2").text($(this).text())
+  $("#search_form3 input[name='query']").attr("value",$(this).text())
+})
+$("#main_search2").click(function(e){
+  e.preventDefault();
+  var a = $('#search_form2 input[name="location"]').val()
+  if (a == ""){
+    alert("위치를 먼저 지정해 주세요!")
+  }else{
+    $("#main_rec_card .row").html("")
+    $("#sub_hos").html("")
 
-//"<%#=@client_location%>"
-$("#get_location").click(function(e){
+    $.ajax({
+         url:"temp/search_sbj",
+         type:'POST',
+         data:{query: $('#search_form2 input[name="query"]').val(),
+               authenticity_token: $('[name="csrf-token"]').attr('content'),
+               location: $('#search_form2 input[name="location"]').val()
+         },
+         dataType: 'script',
+         success: function(){
+
+           //$('#search_form2 input[name="query"]').val("");
+           // $("#main_rec_card").show("slow");
+           // $("#sub_rec_card").show("slow");
+           var offset = $("#main_card_offset").offset();
+           $("html,body").animate({
+           scrollTop:offset.top
+           },"slow");
+         },
+         error: function(){
+           alert('병원이 존재하지 않습니다.');
+          //$('input[name="query"]').val("");
+         }
+       })
+  }
+
+})
+
+$("#main_search3").click(function(e){
+  e.preventDefault();
+  var a = $('#search_form3 input[name="location"]').val()
+  if (a == ""){
+    alert("위치를 먼저 지정해 주세요!")
+  }else{
+    $("#main_rec_card .row").html("")
+    $("#sub_hos").html("")
+
+    $.ajax({
+         url:"temp/search_cate",
+         type:'POST',
+         data:{query: $('#search_form3 input[name="query"]').val(),
+               authenticity_token: $('[name="csrf-token"]').attr('content'),
+               location: $('#search_form3 input[name="location"]').val()
+         },
+         dataType: 'script',
+         success: function(){
+
+           //$('#search_form2 input[name="query"]').val("");
+           // $("#main_rec_card").show("slow");
+           // $("#sub_rec_card").show("slow");
+           var offset = $("#main_card_offset").offset();
+           $("html,body").animate({
+           scrollTop:offset.top
+           },"slow");
+         },
+         error: function(){
+           alert('병원이 존재하지 않습니다.');
+          //$('input[name="query"]').val("");
+         }
+       })
+  }
+
+})
+
+
+
+
+
+
+$('.dropdown-submenu a.test').on("click", function(e){
+   $(this).next('ul').toggle();
+   e.stopPropagation();
+   e.preventDefault();
+ });
+$("#search_form").show();
+$("#search_form2").hide();
+$("#search_form3").hide();
+
+//$("search_form").show();
+
+$("[name='get_location']").click(function(e){
   e.preventDefault();
   window.location.href="temp/map"
 })
-$('#get_location').on('keypress', function(e) {
+$("[name='get_location']").on('keypress', function(e) {
     return e.which !== 13;
 });
-
+$("#search_button button").click(function(){
+  var form_num =$(this).attr("id")
+  //alert(form_num)
+  if (form_num=="form1"){
+    $("#search_form").show();
+    $("#search_form2").hide();
+    $("#search_form3").hide();
+  }else if (form_num=="form2"){
+    $("#search_form").hide();
+    $("#search_form2").show();
+    $("#search_form3").hide();
+  }else{
+    $("#search_form").hide();
+    $("#search_form2").hide();
+    $("#search_form3").show();
+  }
+})
 </script>
